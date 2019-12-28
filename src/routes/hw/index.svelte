@@ -12,9 +12,11 @@
 
 <Header />
 
+<div class="text-center">
 <HiddenWord {...hiddenWords[0]} />
+</div>
 
-<h2 class="text-center opacity-75">Part 1: from the Arabic</h2>
+<h2 class="section">Part 1: from the Arabic</h2>
 
 <div>
 {#each Arabic as hw}
@@ -22,7 +24,7 @@
 {/each}
 </div>
 
-<h2 class="text-center opacity-75">Part 2: from the Persian</h2>
+<h2 class="section">Part 2: from the Persian</h2>
 
 <div>
 {#each Persian as hw}

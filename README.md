@@ -21,9 +21,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Better fonts for presentation
     * Font choices
     * Themes with background images
-    * Fix section/number heading display on read (including mobile)
-    * Fix section/number heading display on individual pages
-    * Fix spacing for section headers
   * UX
     * Transitions for next/prev
     * Hide menu except on mouse move / mobile tap
