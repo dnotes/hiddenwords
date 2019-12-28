@@ -23,7 +23,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Themes with background images
   * UX
     * Transitions for next/prev
-    * Hide menu except on mouse move / mobile tap
     * Fix apply theme to body instead of inner div
   * Dev:
     * Local source for font icons
@@ -32,4 +31,5 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Fix settings do not apply immediately (SPA mode? See [#383])
   * App/Mobile:
     * Icons and manifest for PWA
+    * Show / hide menu on mobile tap
     * Touch gestures for mobile navigation

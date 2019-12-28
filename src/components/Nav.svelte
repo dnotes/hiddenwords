@@ -1,13 +1,30 @@
 <script>
 	import SettingButton from './SettingButton.svelte'
 	import ThemeSetting from './ThemeSetting.svelte'
+	import { fly, slide } from 'svelte/transition'
+	import { quintOut } from 'svelte/easing'
 	import { linkDisplay, theme } from '../store.js'
 	linkDisplay.useLocalStorage()
 	theme.useLocalStorage()
 	import themes from '../themes.js'
 	export let segment
-	let showSettings = false
-	function toggleSettings() {showSettings = !showSettings}
+	let settingsVisible = false
+	let menuVisible = false
+	let menuStuck = false
+	let menuFade
+	function toggleSettings() {settingsVisible = !settingsVisible}
+	function showMenu() {
+		clearInterval(menuFade)
+		menuVisible = true
+		menuFade = setTimeout(function(){
+			menuVisible = false
+			settingsVisible = false
+		}, 2000)
+	}
+	function toggleMenu() {
+		menuStuck = !menuStuck
+		menuVisible = menuStuck
+	}
 </script>
 
 <style>
@@ -24,8 +41,7 @@
 		z-index: 10;
 	}
 
-	div.settings { display:none; width:180px; padding-top:19px; border-bottom-right-radius:8px; box-shadow: 3px 3px 2px rgba(126,126,126,.6)}
-	div.settings.showSettings { display:block; }
+	div.settings { width:180px; padding-top:19px; border-bottom-right-radius:8px; box-shadow: 3px 3px 2px rgba(126,126,126,.6)}
 
 	.row {
 		text-align: center;
@@ -71,13 +87,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </svelte:head>
 
-<div class="menu" class:showSettings>
+<svelte:window on:mousemove={showMenu} />
+
+{#if menuVisible || menuStuck}
+<div class="menu" in:fly="{{ y:-180, duration: 400, easing:quintOut }}" out:fly="{{ y:-180, duration: 1000, easing:quintOut }}"
+		on:mouseover={menuStuck=true} on:mouseout={menuStuck = false}>
 	<ul>
 		<li><a title="home" class:selected='{segment === undefined}' href='/'><i class="fa fa-home" /></a></li>
 		<li><a title="read" rel=prefetch class:selected='{segment === "hw"}' href="/hw"><i class="fa fa-book" /></a></li> 
 		<li><a title="settings" class:selected='{segment === "settings"}' href="/settings" on:click|preventDefault={toggleSettings}><i class="fa fa-cog" /></a></li>
 	</ul>
-	<div class="settings" class:showSettings on:mouseOut="{() => {showSettings=false}}">
+	{#if settingsVisible}
+	<div class="settings" transition:slide="{{ easing:quintOut }}">
 		<div class="row">
 			<div>
 				<SettingButton setting={linkDisplay} value="grid"><i class="fa fa-th" /></SettingButton>
@@ -95,4 +116,6 @@
 			<a href="/about">about</a>
 		</div>
 	</div>
+	{/if}
 </div>
+{/if}
