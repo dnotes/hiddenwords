@@ -2,6 +2,8 @@
 	import SettingButton from './SettingButton.svelte'
 	import ThemeSetting from './ThemeSetting.svelte'
 	import { linkDisplay, theme } from '../store.js'
+	linkDisplay.useLocalStorage()
+	theme.useLocalStorage()
 	import themes from '../themes.js'
 	export let segment
 	let showSettings = false

@@ -14,7 +14,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
 ## Todo list
 
   * Add audio readings w/music
-  * Persistent store for settings
   * Better fonts for presentation
   * Font choices
   * Local source for font icons

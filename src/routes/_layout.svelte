@@ -1,6 +1,7 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 	import { theme } from '../store.js';
+	theme.useLocalStorage()
 
 	export let segment;
 </script>
