@@ -14,7 +14,8 @@
 
 <style>
   a.grid { text-align: center; margin: 1%; display: inline-block; width: 8%; padding: 2% 0; margin: 1%; }
-  a.list { display: block; }
+  a.list { display: block; height: 44px; line-height: 44px; overflow: hidden; }
+  a.list .number { padding-right: 10px; display: inline-block; width: 20px; text-align: right; }
   a.next, a.prev { display: inline-block; height: 40px; width: 40px; line-height: 40px; font-size: 28px; padding: 2%; }
 </style>
 

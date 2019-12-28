@@ -21,7 +21,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Better fonts for presentation
     * Font choices
     * Themes with background images
-    * Fix numbers on list TOC so that text begins at the same place
     * Fix section/number heading display on read (including mobile)
     * Fix section/number heading display on individual pages
     * Fix spacing for section headers
@@ -29,7 +28,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Transitions for next/prev
     * Hide menu except on mouse move / mobile tap
     * Collapsed grid TOC for small screens
-    * Spacing for list TOC for mobile
     * Fix apply theme to body instead of inner div
     * Add spacing at top for menu on desktop
   * Dev:
