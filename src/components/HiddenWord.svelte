@@ -1,7 +1,9 @@
 <script>
+  import Link from './Link.svelte'
   export let id, text
   export let page = false
   export let number = '', pretext = '', exhort = '', section = '', title = ''
+  export let prev, next
 </script>
 
 <style>
@@ -23,4 +25,16 @@
     <p class="exhort">{exhort}</p>
   {/if}
   <p>{text}</p>
+
+  {#if prev || next}
+    <div class="text-center">
+    {#if prev}
+      <Link {...prev} linkDisplay="prev" />
+    {/if}
+    {#if next}
+      <Link {...next} linkDisplay="next" />
+    {/if}
+    </div>
+  {/if}
+
 </div>
