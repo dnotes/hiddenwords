@@ -20,7 +20,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
   * Icons and manifest for PWA
   * Touch gestures for mobile navigation
   * Hide menu except on mouse move / mobile tap
-  * Redirect from /hw to /
   * About page with this text
   * Export site & deploy
   * Transitions for next/prev
