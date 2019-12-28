@@ -24,6 +24,7 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Fix numbers on list TOC so that text begins at the same place
     * Fix section/number heading display on read (including mobile)
     * Fix section/number heading display on individual pages
+    * Fix spacing for section headers
   * UX
     * Transitions for next/prev
     * Hide menu except on mouse move / mobile tap

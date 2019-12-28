@@ -26,7 +26,7 @@
   {/if}
   <p>{text}</p>
 
-  {#if prev || next}
+  {#if page && (prev || next)}
     <div class="text-center">
     {#if prev}
       <Link {...prev} linkDisplay="prev" />

@@ -1,5 +1,6 @@
 <script>
 	import HiddenWord from '../components/HiddenWord.svelte'
+	import Header from '../components/Header.svelte'
 	import Link from '../components/Link.svelte'
 	import { linkDisplay } from '../store.js'
 	import hiddenWords from './hw/_hw.js'
@@ -11,8 +12,7 @@
 	<title>The Hidden Words of Bahá’u’lláh</title>
 </svelte:head>
 
-<h1 class="text-center title">The Hidden Words</h1>
-<h3 class="text-center subtitle">of Bahá’u’lláh</h3>
+<Header />
 
 <div class="text-center">
 <HiddenWord {...hiddenWords[0]} />
