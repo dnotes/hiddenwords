@@ -26,7 +26,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Hide menu except on mouse move / mobile tap
     * Collapsed grid TOC for small screens
     * Fix apply theme to body instead of inner div
-    * Add spacing at top for menu on desktop
   * Dev:
     * Local source for font icons
     * Export site & deploy
