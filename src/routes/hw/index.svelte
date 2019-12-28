@@ -32,4 +32,6 @@
 {/each}
 </div>
 
+<div class="italic">
 <HiddenWord {...hiddenWords.slice(-1)[0]}/>
+</div>
