@@ -71,9 +71,9 @@
 
 <div class="menu" class:showSettings on:mouseOut="{showSettings=false}">
 	<ul>
-		<li><a title="home" class:selected='{segment === undefined}' href='.'><i class="fa fa-home" /></a></li>
-		<li><a title="read" rel=prefetch class:selected='{segment === "read"}' href="read"><i class="fa fa-book" /></a></li> 
-		<li><a title="settings" class:selected='{segment === "settings"}' href="settings" on:click|preventDefault={toggleSettings}><i class="fa fa-cog" /></a></li>
+		<li><a title="home" class:selected='{segment === undefined}' href='/'><i class="fa fa-home" /></a></li>
+		<li><a title="read" rel=prefetch class:selected='{segment === "hw"}' href="/hw"><i class="fa fa-book" /></a></li> 
+		<li><a title="settings" class:selected='{segment === "settings"}' href="/settings" on:click|preventDefault={toggleSettings}><i class="fa fa-cog" /></a></li>
 	</ul>
 	<div class="row">
 		<div>
