@@ -5,17 +5,17 @@ body {
 	line-height: 1.5;
 }
 
-.theme-white, .theme-white div.menu {
+.theme-white, .theme-white div.menu, .theme-white div.settings {
 	background: white;
 	color: #111;
 }
 
-.theme-sepia, .theme-sepia div.menu {
+.theme-sepia, .theme-sepia div.menu, .theme-sepia div.settings {
 	background-color: floralwhite;
 	color: #704214
 }
 
-.theme-dark, .theme-dark div.menu {
+.theme-dark, .theme-dark div.menu, .theme-dark div.settings {
 	background-color: #111;
 	color: white;
 }
