@@ -13,26 +13,32 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
 
 ## Todo list
 
-  * Add audio readings w/music
-  * Better fonts for presentation
-  * Font choices
-  * Local source for font icons
-  * Icons and manifest for PWA
-  * Touch gestures for mobile navigation
-  * Hide menu except on mouse move / mobile tap
-  * About page with this text
-  * Export site & deploy
-  * Transitions for next/prev
-  * Themes with background images
-  * Settings for autoplay
-  * Audio player controls
-  * Collapsed grid TOC for small screens
-  * Refactor CSS using tailwind
-  * Selected menu items appear highlighted
-  * Spacing for list TOC for small screens
-  * Fix numbers on list TOC so that text begins at the same place
-  * Fix section/number heading display on read (including mobile)
-  * Fix section/number heading display on individual pages
-  * Fix apply theme to body instead of inner div
-  * Fix settings do not apply immediately (SPA mode? See [#383])
-  * Add spacing at top for menu on desktop
+  * Audio:
+    * Add audio readings w/music
+    * Settings for autoplay
+    * Audio player controls
+  * Style:
+    * Better fonts for presentation
+    * Font choices
+    * Themes with background images
+    * Fix numbers on list TOC so that text begins at the same place
+    * Fix section/number heading display on read (including mobile)
+    * Fix section/number heading display on individual pages
+  * UX
+    * Transitions for next/prev
+    * Hide menu except on mouse move / mobile tap
+    * Selected menu items appear highlighted
+    * Collapsed grid TOC for small screens
+    * Spacing for list TOC for mobile
+    * Fix apply theme to body instead of inner div
+    * Add spacing at top for menu on desktop
+  * Dev:
+    * Local source for font icons
+    * Export site & deploy
+    * Refactor CSS using tailwind
+    * Fix settings do not apply immediately (SPA mode? See [#383])
+  * App/Mobile:
+    * Icons and manifest for PWA
+    * Touch gestures for mobile navigation
+  * Content:
+    * About page with this text
