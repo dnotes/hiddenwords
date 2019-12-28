@@ -88,4 +88,7 @@
 			{/each}
 		</div>
 	</div>
+	<div class="row">
+		<a href="/about">about</a>
+	</div>
 </div>
