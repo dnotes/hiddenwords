@@ -37,3 +37,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
   * Fix numbers on list TOC so that text begins at the same place
   * Fix section/number heading display on read (including mobile)
   * Fix section/number heading display on individual pages
+  * Fix apply theme to body instead of inner div
+  * Fix settings do not apply immediately (SPA mode? See [#383])
+  * Add spacing at top for menu on desktop
