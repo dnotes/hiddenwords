@@ -51,10 +51,17 @@
 		display: inline-block;
 		width: 60px;
 		height: 60px;
+		line-height: 60px;
 		text-align: center;
 	}
 	a.selected { color: aliceblue; }
 	i.fa { color: gray; font-size: 24px; }
+	li i.fa { font-size: 40px; }
+	li a.selected i.fa { text-shadow: -1px -1px 0 lightgoldenrodyellow, 
+																		1px 1px 0 lightgoldenrodyellow, 
+																		-1px 1px 0 lightgoldenrodyellow, 
+																		1px -1px 0 lightgoldenrodyellow, 
+																		0 0 8px cornflowerblue; }
 
 </style>
 

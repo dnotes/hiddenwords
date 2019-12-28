@@ -20,7 +20,7 @@
 		margin: 4px;
 	}
 	a.selected {
-		box-shadow: 0 0 5px rgba(126,140,255,.6);
+		box-shadow: 0 0 8px cornflowerblue;
 	}
 </style>
 

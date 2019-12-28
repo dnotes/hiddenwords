@@ -28,7 +28,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
   * UX
     * Transitions for next/prev
     * Hide menu except on mouse move / mobile tap
-    * Selected menu items appear highlighted
     * Collapsed grid TOC for small screens
     * Spacing for list TOC for mobile
     * Fix apply theme to body instead of inner div
