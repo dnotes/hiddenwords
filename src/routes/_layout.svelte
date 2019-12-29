@@ -24,14 +24,14 @@
 	}
 </style>
 
-<svelte:window bind:innerWidth={w}/>
+<svelte:head>
+<link rel="stylesheet" type="text/css" href="/themes/{$theme}.css" />
+</svelte:head>
 
-<div class="theme-{$theme}">
+<svelte:window bind:innerWidth={w}/>
 
 <Nav {segment}/>
 
 <main bind:clientWidth={w} style="font-size:{(w*.014)+14}px">
 	<slot></slot>
 </main>
-
-</div>

@@ -19,21 +19,6 @@ body {
 @media (min-width: 3590px) { body { font-size: 64px; } }
 @media (min-width: 3990px) { body { font-size: 70px; } }
 
-.theme-white, .theme-white div.menu, .theme-white div.settings {
-	background: white;
-	color: #111;
-}
-
-.theme-sepia, .theme-sepia div.menu, .theme-sepia div.settings {
-	background-color: floralwhite;
-	color: #704214
-}
-
-.theme-dark, .theme-dark div.menu, .theme-dark div.settings {
-	background-color: #111;
-	color: white;
-}
-
 .pretext, .italic { font-family: Charm, cursive; font-size: 80%; }
 .exhort { font-family: "Cormorant Infant", serif; font-weight: 600; text-transform: uppercase; }
 
