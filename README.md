@@ -20,12 +20,13 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
   * Style:
     * Themes with background images
   * UX
+    * Font size based on height x width, not just width
     * Transitions for next/prev
-    * Fix apply theme to body instead of inner div
   * Dev:
     * Local source for font icons
     * Export site & deploy
     * Refactor CSS using tailwind
+    * Refactor CSS using SCSS
     * Fix settings do not apply immediately (SPA mode? See [#383])
   * App/Mobile:
     * Icons and manifest for PWA
