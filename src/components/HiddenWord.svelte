@@ -37,7 +37,7 @@
 
 <svelte:window bind:innerHeight={h} />
 
-<div class="t{textSize}" class:page class:list={!page} style="padding-top:{h/4}px; {h ? 'margin-top:-2em;' : ''}">
+<div class="t{textSize}" class:page class:list={!page} style="padding-top:{page ? h/4 : 0}px; {page && h ? 'margin-top:-2em;' : ''}">
   {#if pretext}
     <p class="pretext">{pretext}</p>
   {/if}
