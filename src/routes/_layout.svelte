@@ -3,7 +3,7 @@
 	import { theme } from '../store.js';
 	theme.useLocalStorage()
 
-	let w
+	let w, h
 
 	export let segment;
 </script>
@@ -28,10 +28,10 @@
 <link rel="stylesheet" type="text/css" href="/themes/{$theme}.css" />
 </svelte:head>
 
-<svelte:window bind:innerWidth={w}/>
+<svelte:window bind:innerWidth={w} bind:innerHeight={h} />
 
 <Nav {segment}/>
 
-<main bind:clientWidth={w} style="font-size:{(w*.014)+14}px">
+<main style="font-size:{(Math.pow((w*w)*h, 1/3)*.014)+12}px;">
 	<slot></slot>
 </main>

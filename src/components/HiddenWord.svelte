@@ -4,19 +4,20 @@
   export let page = false
   export let number = '', pretext = '', exhort = '', section = '', title = ''
   export let prev, next
-  let textSize
+  let textSize, h
   // This expression uses the fourth root of the number of characters over 98 to calculate how big the text should be
-  $: textSize = Math.round( Math.pow( ( (pretext || '').length + text.length + (exhort || '').length * 1.2 ) - 98, 1/4 ) - 1 )
+  $: textSize = Math.round( Math.pow( ( (pretext || '').length + text.length + (exhort || '').length * 1.4 ) - 90, 1/4 ) - 1 )
 </script>
 
 <style>
   h2 { margin: 0; }
   h2.hidden { display: none; }
 
+  .page { padding-top:4em; }
   .page h2 { opacity:0.2; font-weight:bold; position:fixed; top:5px; right:5%; }
+  .page .exhort { margin-top:0; }
   @media all and (min-height: 600px) {
     .page h2 { top:50px; }
-    div.page { margin-top:50px; }
   }
 
   div.list { margin-top: 2em; }
@@ -26,14 +27,17 @@
   .list h2 .section { display:none; }
 
   .page.t5 p.hw-text { font-size:75%; }
-  .page.t4 p.hw-text { font-size:80%; }
+  .page.t4 p.hw-text { font-size:90%; }
+  .page.t3 p.hw-text { font-size:110%; }
   .page.t2 p.hw-text { font-size:140%; line-height:1.35em; }
   .page.t2 p.exhort { font-size:120%; line-height:1.4em; }
   .page.t1 p.hw-text { font-size:170%; line-height:1.2em; }
-  .page.t1 p.exhort { font-size:140%; line-height:1.3em; }
+  .page.t1 p.exhort { font-size:150%; line-height:1.3em; }
 </style>
 
-<div class="t{textSize}" class:page class:list={!page}>
+<svelte:window bind:innerHeight={h} />
+
+<div class="t{textSize}" class:page class:list={!page} style="padding-top:{h/4}px; {h ? 'margin-top:-2em;' : ''}">
   {#if pretext}
     <p class="pretext">{pretext}</p>
   {/if}
