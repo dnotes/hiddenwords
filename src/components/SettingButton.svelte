@@ -13,7 +13,7 @@
 		width: 40px;
 		height: 40px;
 		line-height: 40px;
-		font-size: 24px;
+		font-size: 100%;
 		box-shadow: 0 0 2px rgba(126,126,126,.5);
 		border-radius: 20px;
 		overflow: hidden;

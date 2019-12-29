@@ -18,10 +18,8 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Settings for autoplay
     * Audio player controls
   * Style:
-    * Better fonts for presentation
-    * Font choices
     * Themes with background images
-    * Spacing for HiddenWord page
+    * Dynamic spacing for HiddenWord page based on text length
   * UX
     * Transitions for next/prev
     * Fix apply theme to body instead of inner div

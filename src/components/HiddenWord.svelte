@@ -7,28 +7,28 @@
 </script>
 
 <style>
-  .pretext { font-style: italic; font-size: 90%; }
-  .exhort { opacity: 0.9; }
-  h2.title { margin: 0; }
-  h2.title.hidden { display: none; }
-  h2.title.page { opacity:0.2; font-weight:bold; position:fixed; top:5px; left:5%; }
-  h2.title.list { opacity:0.4; float:left; display:block; width:30px; margin-left:-20px; text-align:right; padding-right: 10px; line-height:24px; font-size:18px; }
-  h2.title.list a { font-size:20px; line-height:24px; }
-  @media screen and (min-width:600px) {
-    h2.title.list, h2.title.list a { font-size:24px; line-height:28px; }
+  h2 { margin: 0; }
+  h2.hidden { display: none; }
+
+  .page h2 { opacity:0.2; font-weight:bold; position:fixed; top:5px; right:5%; }
+  @media all and (min-height: 600px) {
+    .page h2 { top:50px; }
+    div.page { margin-top:50px; }
   }
-  @media screen and (min-width:1000px) {
-    h2.title.list { margin-left: -50px; }
-  }
-  h2.title.list .section { display:none; }
+
+  div.list { margin-top: 2em; }
+  .list h2 { opacity:0.4; float:right; display:block; width:1.3em; text-align:right; }
+  @media all and (min-width:560px) { .list h2 { float:left; text-align:left; } }
+  @media all and (min-width:900px) { .list h2 { margin-left:-2em; font-size:160%; text-align:right; } }
+  .list h2 .section { display:none; }
 </style>
 
-<div class:page>
+<div class:page class:list={!page}>
   {#if pretext}
     <p class="pretext">{pretext}</p>
   {/if}
 
-  <h2 class="title" class:page class:list="{!page}" class:hidden="{!title}" id="{id}">
+  <h2 class:hidden="{!title}" id="{id}">
   <span class="section">{section || id}</span>
   {#if page}
     {number || ''}

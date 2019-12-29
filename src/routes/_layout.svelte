@@ -3,6 +3,8 @@
 	import { theme } from '../store.js';
 	theme.useLocalStorage()
 
+	let w
+
 	export let segment;
 </script>
 
@@ -14,13 +16,21 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
+	@media screen and (min-width:800px) {
+		main { max-width: 800px; }
+	}
+	@media screen and (min-width:1000px) {
+		main { max-width: 80%; }
+	}
 </style>
+
+<svelte:window bind:innerWidth={w}/>
 
 <div class="theme-{$theme}">
 
 <Nav {segment}/>
 
-<main>
+<main bind:clientWidth={w} style="font-size:{(w*.014)+14}px">
 	<slot></slot>
 </main>
 

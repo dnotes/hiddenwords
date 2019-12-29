@@ -1,6 +1,5 @@
 <script>
 	import HiddenWord from '../../components/HiddenWord.svelte'
-	import Header from "../../components/Header.svelte"
 	import hiddenWords from './_hw.js'
 	let Arabic = hiddenWords.slice(1, 72)
 	let Persian = hiddenWords.slice(72, (72 + 82))
@@ -9,8 +8,6 @@
 <svelte:head>
 	<title>The Hidden Words of Bahá’u’lláh</title>
 </svelte:head>
-
-<Header />
 
 <div class="text-center">
 <HiddenWord {...hiddenWords[0]} />
