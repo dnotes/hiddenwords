@@ -27,10 +27,10 @@
 
   .page.t5 p.hw-text { font-size:75%; }
   .page.t4 p.hw-text { font-size:80%; }
-  .page.t2 p.hw-text { font-size:140%; }
-  .page.t2 p.exhort { font-size:120%; }
-  .page.t1 p.hw-text { font-size:170%; }
-  .page.t1 p.exhort { font-size:140%; }
+  .page.t2 p.hw-text { font-size:140%; line-height:1.35em; }
+  .page.t2 p.exhort { font-size:120%; line-height:1.4em; }
+  .page.t1 p.hw-text { font-size:170%; line-height:1.2em; }
+  .page.t1 p.exhort { font-size:140%; line-height:1.3em; }
 </style>
 
 <div class="t{textSize}" class:page class:list={!page}>
