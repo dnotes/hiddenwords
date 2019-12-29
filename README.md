@@ -23,8 +23,9 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
   * UX
     * Font size based on height x width, not just width
     * Transitions for next/prev
+    * Auto-advance
   * Dev:
-    * Local source for font icons
+    * Local cache of fonts & icons
     * Export site & deploy
     * Refactor CSS using tailwind
     * Refactor CSS using SCSS
