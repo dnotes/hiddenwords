@@ -4,6 +4,9 @@
   export let page = false
   export let number = '', pretext = '', exhort = '', section = '', title = ''
   export let prev, next
+  let textSize
+  // This expression uses the fourth root of the number of characters over 98 to calculate how big the text should be
+  $: textSize = Math.round( Math.pow( ( (pretext || '').length + text.length + (exhort || '').length * 1.2 ) - 98, 1/4 ) - 1 )
 </script>
 
 <style>
@@ -21,9 +24,16 @@
   @media all and (min-width:560px) { .list h2 { float:left; text-align:left; } }
   @media all and (min-width:900px) { .list h2 { margin-left:-2em; font-size:160%; text-align:right; } }
   .list h2 .section { display:none; }
+
+  .page.t5 p.hw-text { font-size:75%; }
+  .page.t4 p.hw-text { font-size:80%; }
+  .page.t2 p.hw-text { font-size:140%; }
+  .page.t2 p.exhort { font-size:120%; }
+  .page.t1 p.hw-text { font-size:170%; }
+  .page.t1 p.exhort { font-size:140%; }
 </style>
 
-<div class:page class:list={!page}>
+<div class="t{textSize}" class:page class:list={!page}>
   {#if pretext}
     <p class="pretext">{pretext}</p>
   {/if}
@@ -40,7 +50,7 @@
   {#if exhort}
     <p class="exhort">{exhort}</p>
   {/if}
-  <p>{text}</p>
+  <p class="hw-text">{text}</p>
 
   {#if page && (prev || next)}
     <div class="text-center">
