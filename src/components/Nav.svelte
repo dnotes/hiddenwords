@@ -41,7 +41,13 @@
 		z-index: 10;
 	}
 
-	div.settings { width:180px; padding-top:19px; border-bottom-right-radius:8px; box-shadow: 3px 3px 2px rgba(126,126,126,.6)}
+	div.settings { 
+		width:180px; 
+		padding-top:19px; 
+		border-bottom-right-radius:8px; 
+		box-shadow: 3px 3px 2px rgba(126,126,126,.6);
+		font-size: 16px;
+	}
 
 	.row {
 		text-align: center;
@@ -73,7 +79,7 @@
 		text-align: center;
 	}
 	a.selected { color: aliceblue; }
-	i.fa { color: gray; font-size: 24px; }
+	i.fa { color: gray; font-size: 24px; line-height:40px; }
 	li i.fa { font-size: 40px; }
 	li a.selected i.fa { text-shadow: -1px -1px 0 lightgoldenrodyellow, 
 																		1px 1px 0 lightgoldenrodyellow, 
