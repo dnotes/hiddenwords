@@ -17,6 +17,7 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Add audio readings w/music
     * Settings for autoplay
     * Audio player controls
+    * Auto-advance after audio
   * Style:
     * Themes with background images
   * UX
