@@ -19,6 +19,7 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Audio player controls
   * Style:
     * Themes with background images
+    * Fix Nav button font sizes
   * UX
     * Font size based on height x width, not just width
     * Transitions for next/prev
