@@ -1,4 +1,4 @@
-import hiddenWords from './_hw.js';
+import hiddenWords from '../../content/hw.js';
 
 const lookup = new Map();
 hiddenWords.forEach((v,i) => {

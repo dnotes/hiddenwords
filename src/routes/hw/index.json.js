@@ -1,4 +1,4 @@
-import hiddenWords from './_hw.js';
+import hiddenWords from '../../content/hw.js';
 
 const contents = JSON.stringify({
 	Introduction: hiddenWords[0],

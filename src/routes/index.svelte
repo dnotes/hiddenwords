@@ -3,7 +3,7 @@
 	import Header from '../components/Header.svelte'
 	import Link from '../components/Link.svelte'
 	import { linkDisplay } from '../store.js'
-	import hiddenWords from './hw/_hw.js'
+	import hiddenWords from '../content/hw.js'
 	let Arabic = hiddenWords.slice(1, 72)
 	let Persian = hiddenWords.slice(72, (72 + 83))
 </script>
