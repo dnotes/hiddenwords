@@ -9,7 +9,7 @@ The Hidden Words are available on the [official website of the Bahá’í Faith]
 
 ## About this presentation
 
-This presentation of the Hidden Words was created by David Hunt in 2019 using Svelte and Sapper. The repository is publicly available at https://github.com/dnotes/hiddenwords.
+This presentation of the Hidden Words was created by David Hunt in 2019 using Svelte and Sapper. The repository is publicly available [on GitHub](https://github.com/dnotes/hiddenwords).
 
 ## Todo list
 
@@ -30,6 +30,5 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Refactor CSS using SCSS
     * Fix settings do not apply immediately (SPA mode? See [#383])
   * App/Mobile:
-    * Icons and manifest for PWA
     * Show / hide menu on mobile tap
     * Touch gestures for mobile navigation
