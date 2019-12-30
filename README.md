@@ -25,7 +25,6 @@ This presentation of the Hidden Words was created by David Hunt in 2019 using Sv
     * Auto-advance
   * Dev:
     * Local cache of fonts & icons
-    * Export site & deploy
     * Refactor CSS using tailwind
     * Refactor CSS using SCSS
     * Fix settings do not apply immediately (SPA mode? See [#383])
