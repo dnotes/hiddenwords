@@ -1,9 +1,10 @@
 import hiddenWords from './_hw.js';
 
 const lookup = new Map();
-hiddenWords.forEach((hw,i) => {
-	if (i > 0) hw.prev = Object.assign({}, hiddenWords[i - 1])
-	if (i < hiddenWords.length - 1) hw.next = Object.assign({}, hiddenWords[i + 1])
+hiddenWords.forEach((v,i) => {
+	let hw = Object.assign({}, v)
+	if (i > 0) hw.prev = hiddenWords[i - 1]
+	if (i < hiddenWords.length - 1) hw.next = hiddenWords[i + 1]
 	lookup.set(hw.id, JSON.stringify(hw));
 });
 
