@@ -99,7 +99,7 @@
 <div class="menu" in:fly="{{ y:-180, duration: 400, easing:quintOut }}" out:fly="{{ y:-180, duration: 1000, easing:quintOut }}"
 		on:mouseover={menuStuck=true} on:mouseout={menuStuck = false}>
 	<ul>
-		<li><a title="home" class:selected='{segment === undefined}' href='/'><i class="fa fa-home" /></a></li>
+		<li><a title="home" rel=prefetch class:selected='{segment === undefined}' href='/'><i class="fa fa-home" /></a></li>
 		<li><a title="read" rel=prefetch class:selected='{segment === "hw"}' href="/hw"><i class="fa fa-book" /></a></li> 
 		<li><a title="settings" class:selected='{segment === "settings"}' href="/settings" on:click|preventDefault={toggleSettings}><i class="fa fa-cog" /></a></li>
 	</ul>
@@ -119,7 +119,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<a href="/about">about</a>
+			<a rel=prefetch href="/about">about</a>
 		</div>
 	</div>
 	{/if}

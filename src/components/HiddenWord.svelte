@@ -47,7 +47,7 @@
   {#if page}
     {number || ''}
   {:else if number}
-    <a href="/hw/{id}">{number}</a>
+    <a rel=prefetch href="/hw/{id}">{number}</a>
   {/if}
   </h2>
 

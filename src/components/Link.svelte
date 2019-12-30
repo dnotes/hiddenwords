@@ -28,11 +28,11 @@
 </style>
 
 {#if linkDisplay === 'prev' || linkDisplay === 'next'}
-  <a href="/hw/{id}" class="{linkDisplay}" title="{title || id} : {exhort} {teaser}">
+  <a rel=prefetch href="/hw/{id}" class="{linkDisplay}" title="{title || id} : {exhort} {teaser}">
   <i class="fa fa-chevron-{linkDisplay === 'prev' ? 'left' : 'right'}" />
   </a>
 {:else}
-  <a href="/hw/{id}" class="{linkDisplay}">
+  <a rel=prefetch href="/hw/{id}" class="{linkDisplay}">
   <span class="number">{number || id}</span>
   {#if number && (linkDisplay === 'list')}
     <span class="exhort">{exhort}</span>
