@@ -4,14 +4,14 @@ import { grid, zen } from '$lib/stores'
   export let narrow = false
   export let searchtext = ''
   const numbered = hw.number ? true : false
-  $: href = $zen ? hw.id : `/#${hw.id.replace('/','-')}`
+  $: href = $zen ? `/${hw.id}` : `/#${hw.id.replace('/','-')}`
   $: found = !searchtext || hw.searchtext.includes(searchtext)
 </script>
 
 {#if $grid}
-  <a class="inline-block grid-item" class:opacity-10={!found} class:narrow class:numbered {href} title="{hw.teaser}">{hw.number || hw.title}</a>
+  <a on:click|stopPropagation class="inline-block grid-item" class:opacity-10={!found} class:narrow class:numbered {href} title="{hw.teaser}">{hw.number || hw.title}</a>
 {:else}
-  <a class="block" class:hidden={!found} {href}>{hw.number || hw.title}: “{hw.teaser}”</a>
+  <a on:click|stopPropagation class="block" class:hidden={!found} {href}>{hw.number || hw.title}: “{hw.teaser}”</a>
 {/if}
 
 <style lang="postcss">

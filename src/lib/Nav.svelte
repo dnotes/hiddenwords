@@ -1,6 +1,7 @@
 <script>
   import Popup from '$lib/Popup.svelte';
   import Toc from '$lib/TOC.svelte';
+  import About from '$lib/About.svelte';
   import Pushbutton from './Pushbutton.svelte';
   import { page } from '$app/stores'
   import { current, zen, flute, reading, autoscroll, brightness, showSettings, showContents } from '$lib/stores';
@@ -17,7 +18,7 @@
   <Pushbutton bool={showSettings} brighten >
     <div slot="on">
       <Popup bool={showSettings} class="left-0">
-        <Toc />
+        <About />
       </Popup>
       <Fa icon={faCog} size="lg" />
     </div>
@@ -57,14 +58,14 @@
 
   <div class="flex-grow"></div>
 
-  <Pushbutton bool={showContents} brighten >
-    <div slot="on">
+  <Pushbutton href="/contents" bool={showContents} brighten>
+    <div slot="on"><Fa icon={faBook} size="lg" /></div>
+    <div slot="off"><Fa icon={faBook} size="lg" /></div>
+    <div slot="menu">
       <Popup bool={showContents} class="right-0">
         <Toc />
       </Popup>
-      <Fa icon={faBook} size="lg" />
     </div>
-    <div slot="off"><Fa icon={faBook} size="lg" /></div>
   </Pushbutton>
 
 </div>
