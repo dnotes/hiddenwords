@@ -11,7 +11,7 @@ export const brightness = writable('brightness', 50)
 export const muteFlute = derived(flute,v => !v)
 export const muteVoice = derived(voice,v => !v)
 
-export const paused = writeableNoStore(false)
+export const paused = writeableNoStore(true)
 export const showSettings = writeableNoStore(false)
 export const showContents = writeableNoStore(false)
 
