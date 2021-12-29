@@ -38,7 +38,7 @@
   <div class="relative z-10">
     <div class="opacity-{$brightness} text-center">
       <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
-      <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="lg" /></button>
+      <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
       <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
     <audio src="/files/{hw.anchor}-flute.mp3" bind:paused={$paused} bind:muted={muteFlute} />
