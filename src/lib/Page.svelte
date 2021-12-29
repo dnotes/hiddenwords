@@ -1,6 +1,7 @@
 <script lang="ts">
   export let hw
   import { faChevronCircleLeft,faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+  import { brightness } from '$lib/stores'
   import Fa from 'svelte-fa'
 </script>
 
@@ -23,9 +24,9 @@
   </div>
   <div class="flex-grow" />
   <div class="relative z-10">
-    <div class="opacity-50 text-center">
-      <a href="/{hw.prev || hw.id}" class="inline-block text-gray-500" class:opacity-0={!hw.prev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
-      <a href="/{hw.next || hw.id}" class="inline-block text-gray-500" class:opacity-0={!hw.next}><Fa icon={faChevronCircleRight} size="3x" /></a>
+    <div class="opacity-{$brightness} text-center">
+      <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
+      <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
   </div>
 </div>
