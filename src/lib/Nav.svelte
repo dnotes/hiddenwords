@@ -4,7 +4,7 @@
   import About from '$lib/About.svelte';
   import Pushbutton from './Pushbutton.svelte';
   import { page } from '$app/stores'
-  import { current, zen, flute, reading, autoscroll, brightness, showSettings, showContents } from '$lib/stores';
+  import { current, zen, flute, voice, autoplay, brightness, showSettings, showContents } from '$lib/stores';
   const { id } = $page?.params
   import Fa from 'svelte-fa'
   import { faBars, faDotCircle, faMicrophoneAlt, faMusic, faPlay, faInfoCircle, faPalette, faCog, faBook, faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
@@ -45,13 +45,13 @@
     </div>
 
     <div>
-      <Pushbutton bool={reading} circle>
+      <Pushbutton bool={voice} circle>
         <Fa slot="on" icon={faMicrophoneAlt} size="sm" />
       </Pushbutton>
     </div>
 
     <div>
-      <Pushbutton bool={autoscroll} circle>
+      <Pushbutton bool={autoplay} circle>
         <Fa slot="on" icon={faPlay} size="sm" />
       </Pushbutton>
     </div>

@@ -8,7 +8,7 @@
 </script>
 
 <script>
-import { zen, flute, reading, autoscroll, brightness } from '$lib/stores'
+import { zen, flute, voice, autoplay, brightness } from '$lib/stores'
 import Switch from '$lib/Switch.svelte';
   export let item
 </script>
@@ -26,13 +26,13 @@ import Switch from '$lib/Switch.svelte';
   </div>
 
   <div class="flex">
-    <div class="flex-grow">Readings:</div>
-    <Switch bool={reading} highlight />
+    <div class="flex-grow">Reading:</div>
+    <Switch bool={voice} highlight />
   </div>
 
   <div class="flex">
-    <div class="flex-grow">Autoscroll:</div>
-    <Switch bool={autoscroll} highlight />
+    <div class="flex-grow">Autoplay:</div>
+    <Switch bool={autoplay} highlight />
   </div>
 
   <div class="flex">
