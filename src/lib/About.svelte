@@ -5,7 +5,7 @@ import Switch from '$lib/Switch.svelte';
 </script>
 
 <div class="leading-loose max-w-xs">
-  <h2>Settings</h2>
+  <h2 id="settings">Settings</h2>
   <div class="flex">
     <div class="flex-grow">Zen mode:</div>
     <Switch bool={zen} highlight />

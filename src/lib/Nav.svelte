@@ -58,7 +58,7 @@
 
   <div class="flex-grow"></div>
 
-  <Pushbutton href="/contents" bool={showContents} brighten>
+  <Pushbutton href="/contents" bool={showContents} brighten >
     <Fa slot="on" icon={faBook} size="lg" />
     <Fa slot="off" icon={faBook} size="lg" />
     <div slot="menu">
