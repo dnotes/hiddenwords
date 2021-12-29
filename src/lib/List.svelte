@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { zen, brightness } from '$lib/stores'
+  import { brightness } from '$lib/stores'
   export let items
 </script>
 
@@ -10,7 +10,7 @@
     {/if}
     <p>
       {#if number}
-        <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/{$zen ? id : '#' + anchor}" id={anchor}>{number}</a>
+        <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/{anchor}" id={anchor}>{number}</a>
       {/if}
       {#if exhort}
         <span class="font-exhort mb-2 inline-block">{exhort}</span><br>
