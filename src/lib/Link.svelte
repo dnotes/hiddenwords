@@ -9,9 +9,9 @@ import { grid, zen } from '$lib/stores'
 </script>
 
 {#if $grid}
-  <a on:click|stopPropagation class="inline-block grid-item" class:opacity-10={!found} class:narrow class:numbered {href} title="{hw.teaser}">{hw.number || hw.title}</a>
+  <a on:click class="inline-block grid-item" class:opacity-10={!found} class:narrow class:numbered {href} title="{hw.teaser}">{hw.number || hw.title}</a>
 {:else}
-  <a on:click|stopPropagation class="block" class:hidden={!found} {href}>{hw.number || hw.title}: “{hw.teaser}”</a>
+  <a on:click class="block" class:hidden={!found} {href}>{hw.number || hw.title}: “{hw.teaser}”</a>
 {/if}
 
 <style lang="postcss">

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { onMount } from "svelte";
 import Fa from 'svelte-fa'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
@@ -10,9 +10,15 @@ let cls=''
 export { cls as class }
 
 onMount(() => {
+  /* @type (event:Html) */
   const handleClick = (event) => {
     if (el.contains(event.target)) {
-      $bool = true
+      if (event.target.tagName === 'A') {
+        $bool = false
+      }
+      else {
+        $bool = true
+      }
     }
     else {
       $bool = !$bool

@@ -16,13 +16,13 @@
 <div class="w-full sm:w-96 sm:bg-white sm:dark:bg-gray-900 sm:rounded-t-full mx-auto flex justify-center items-baseline">
 
   <Pushbutton bool={showSettings} brighten >
-    <div slot="on">
+    <Fa slot="on" icon={faCog} size="lg" />
+    <Fa slot="off" icon={faCog} size="lg" />
+    <div slot="menu">
       <Popup bool={showSettings} class="left-0">
         <About />
       </Popup>
-      <Fa icon={faCog} size="lg" />
     </div>
-    <div slot="off"><Fa icon={faCog} size="lg" /></div>
   </Pushbutton>
 
   <div class="flex-grow"></div>
@@ -59,8 +59,8 @@
   <div class="flex-grow"></div>
 
   <Pushbutton href="/contents" bool={showContents} brighten>
-    <div slot="on"><Fa icon={faBook} size="lg" /></div>
-    <div slot="off"><Fa icon={faBook} size="lg" /></div>
+    <Fa slot="on" icon={faBook} size="lg" />
+    <Fa slot="off" icon={faBook} size="lg" />
     <div slot="menu">
       <Popup bool={showContents} class="right-0">
         <Toc />
