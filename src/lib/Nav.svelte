@@ -13,17 +13,19 @@
 
 </script>
 
-<div class="w-full sm:w-96 sm:bg-white sm:dark:bg-gray-900 sm:rounded-t-full mx-auto flex justify-center items-baseline">
+<div class="w-full sm:w-96 sm:px-4 sm:bg-white sm:dark:bg-gray-900 sm:rounded-t-3xl mx-auto flex justify-center items-baseline">
 
-  <Pushbutton bool={showSettings} brighten >
-    <Fa slot="on" icon={faCog} size="lg" />
-    <Fa slot="off" icon={faCog} size="lg" />
-    <div slot="menu">
-      <Popup bool={showSettings} class="left-0">
-        <About />
-      </Popup>
-    </div>
-  </Pushbutton>
+  <div class="p-2 bg-white dark:bg-gray-900 rounded-tr-3xl sm:bg-transparent">
+    <Pushbutton bool={showSettings} brighten >
+      <Fa slot="on" icon={faCog} size="lg" />
+      <Fa slot="off" icon={faCog} size="lg" />
+      <div slot="menu">
+        <Popup bool={showSettings} class="left-0">
+          <About />
+        </Popup>
+      </div>
+    </Pushbutton>
+  </div>
 
   <div class="flex-grow"></div>
 
@@ -58,15 +60,17 @@
 
   <div class="flex-grow"></div>
 
-  <Pushbutton href="/contents" bool={showContents} brighten >
-    <Fa slot="on" icon={faBook} size="lg" />
-    <Fa slot="off" icon={faBook} size="lg" />
-    <div slot="menu">
-      <Popup bool={showContents} class="right-0">
-        <Toc />
-      </Popup>
-    </div>
-  </Pushbutton>
+  <div class="p-2 bg-white dark:bg-gray-900 rounded-tl-3xl sm:bg-transparent">
+    <Pushbutton href="/contents" bool={showContents} brighten >
+      <Fa slot="on" icon={faBook} size="lg" />
+      <Fa slot="off" icon={faBook} size="lg" />
+      <div slot="menu">
+        <Popup bool={showContents} class="right-0">
+          <Toc />
+        </Popup>
+      </div>
+    </Pushbutton>
+  </div>
 
 </div>
 
