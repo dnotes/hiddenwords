@@ -1,0 +1,32 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.22",
+    "@sveltejs/kit": "next",
+    "autoprefixer": "^10.4.0",
+    "markdown-it": "^12.3.0",
+    "markdown-it-attrs": "^4.1.1",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.6",
+    "svelte-fa": "^2.4.0",
+    "svelte-local-storage-store": "^0.2.6",
+    "svelte-preprocess": "^4.10.1",
+    "tailwindcss": "^3.0.7",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3",
+    "vite-plugin-gray-matter": "github:dnotes/vite-plugin-gray-matter",
+    "vite-plugin-markdown": "^2.0.2"
+  },
+  "type": "module"
+}

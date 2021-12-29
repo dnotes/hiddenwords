@@ -1,0 +1,33 @@
+/* Write your global styles here, in PostCSS syntax */
+@import url('https://fonts.googleapis.com/css?family=Bellefair|Charm|Cormorant+Infant:600,600i&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { font-size:18px; }
+
+@media (min-width: 420px) { #page { font-size: 20px; } }
+@media (min-width: 540px) { #page { font-size: 22px; } }
+@media (min-width: 700px) { #page { font-size: 24px; } }
+@media (min-width: 840px) { #page { font-size: 26px; } }
+@media (min-width: 1000px) { #page { font-size: 28px; } }
+@media (min-width: 1260px) { #page { font-size: 32px; } }
+@media (min-width: 1390px) { #page { font-size: 34px; } }
+@media (min-width: 1990px) { #page { font-size: 42px; } }
+
+body { @apply dark:bg-gray-900 dark:text-gray-100 font-normal }
+a { @apply text-blue-500 }
+
+h1,h2,h3,h4,h5,h6 { @apply mt-5 mb-3 leading-tight opacity-70 font-bold text-lg }
+
+h2 { @apply text-xl }
+
+h1 { @apply text-2xl }
+
+p { @apply leading-snug mt-3 }
+
+ul,ol { @apply pl-4 }
+li { @apply list-disc list-outside }
+
+blockquote { @apply px-6 }
