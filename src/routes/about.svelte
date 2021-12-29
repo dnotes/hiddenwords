@@ -1,10 +1,8 @@
 <script context="module" lang="ts">
-  import mdPlugin from 'markdown-it'
-  const md = mdPlugin('commonmark', { typographer:true })
   export async function load() {
-    const content = await import('/README.md')
+    const item = await import('/README.md')
     return { props: {
-      item: md.render(content.content)
+      item
     } }
   }
 </script>
@@ -45,4 +43,4 @@ import Switch from '$lib/Switch.svelte';
 </div>
 
 <!-- about page -->
-{@html item}
+{@html item.excerptHtml}

@@ -11,6 +11,9 @@ The full text of the Hidden Words is available [on the official website of the B
 
 This site was created by David Hunt in 2019 using Svelte and Sapper. It was redone in SvelteKit in 2021. The repository is publicly available [on GitHub](https://github.com/dnotes/hiddenwords). Music and readings © 2006 by David Hunt, website © 2019 and 2021 David Hunt.
 
+---
+<!-- Break: the text below does not appear in the app -->
+
 ## Todo list
 
   * Audio:

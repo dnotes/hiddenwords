@@ -1,6 +1,13 @@
 import adapter from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
-import { default as mdPlugin } from "vite-plugin-gray-matter";
+import mdPlugin from "vite-plugin-gray-matter";
+
+import mdit from 'markdown-it'
+const md = mdit('commonmark', { typographer:true })
+
+const render = (markdown) => {
+  return md.render(markdown)
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,7 +19,10 @@ const config = {
     adapter: adapter(),
     vite: {
       plugins: [
-        mdPlugin()
+        mdPlugin({
+          excerpt:true,
+          render
+        })
       ],
       server: { fs: { allow: ['..']}}
     },
