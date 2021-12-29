@@ -7,6 +7,7 @@ import { goto } from "$app/navigation";
   export let hw
 
   let muteFlute, muteVoice
+  let duration, fluteTime, voiceTime
 
   $: {
     muteFlute = !$flute
@@ -47,7 +48,10 @@ import { goto } from "$app/navigation";
       <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
       <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
-    <audio src="/files/{hw.anchor}-flute.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteFlute} on:ended={next} />
-    <audio src="/files/{hw.anchor}-voice.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteVoice} />
+    <div class="opacity-{$brightness} text-center">
+      <input type="range" min=0 max={duration} step=0.1 bind:value={fluteTime} on:change={()=>{voiceTime = fluteTime}} />
+    </div>
+    <audio src="/files/{hw.anchor}-flute.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteFlute} on:ended={next} bind:currentTime={fluteTime} bind:duration />
+    <audio src="/files/{hw.anchor}-voice.mp3" autoplay={$autoplay} bind:paused={$paused} bind:currentTime={voiceTime} bind:muted={muteVoice} />
   </div>
 </div>
