@@ -1,8 +1,10 @@
 <script lang="ts">
+import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
+import { brightness, flute, voice, paused, autoplay } from '$lib/stores'
+import Fa from 'svelte-fa'
+import { goto } from "$app/navigation";
+
   export let hw
-  import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
-  import { brightness, flute, voice, paused } from '$lib/stores'
-  import Fa from 'svelte-fa'
 
   let muteFlute, muteVoice
 
@@ -13,6 +15,10 @@
 
   function clickPlay() {
     $paused = !$paused
+  }
+
+  function next() {
+    if ($autoplay && hw.next) goto('/' + hw.next)
   }
 
 </script>
@@ -41,7 +47,7 @@
       <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
       <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
-    <audio src="/files/{hw.anchor}-flute.mp3" bind:paused={$paused} bind:muted={muteFlute} />
-    <audio src="/files/{hw.anchor}-voice.mp3" bind:paused={$paused} bind:muted={muteVoice} />
+    <audio src="/files/{hw.anchor}-flute.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteFlute} on:ended={next} />
+    <audio src="/files/{hw.anchor}-voice.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteVoice} />
   </div>
 </div>
