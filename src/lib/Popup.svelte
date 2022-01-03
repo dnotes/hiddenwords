@@ -48,3 +48,7 @@ onMount(() => {
   <button class="absolute top-4 right-4 z-10 cursor-pointer text-gray-500" type="button" on:click|stopPropagation={()=>{$bool = !$bool}}><Fa icon={faTimesCircle} size="lg" /></button>
   <slot></slot>
 </div>
+
+<style>
+  div { max-height: calc(99vh - 3rem); }
+</style>
