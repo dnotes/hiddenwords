@@ -19,6 +19,10 @@ import { fade } from "svelte/transition"
 
   function clickPlay() {
     clearTimeout($nextTimeout)
+    if (!$flute && !$voice) {
+      $flute = true
+      $voice = true
+    }
     $paused = !$paused
   }
 
@@ -58,7 +62,7 @@ import { fade } from "svelte/transition"
   <div class="relative z-10">
     <div class="opacity-{$brightness} text-center">
       <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev} on:click={clickNextPrev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
-      <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
+      <button type="button" class="inline-block text-blue-500" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
       <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next} on:click={clickNextPrev}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
     <div class="relative flex justify-center h-4">
