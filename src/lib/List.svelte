@@ -48,10 +48,10 @@
 
             <a class="block float-left w-4 -ml-6 text-center opacity-{$paused ? $brightness : '1'}" href="/#{hw.anchor}" on:click={() => {clickPlayPause(hw)}}>
               {#if hw?.number}
-                <span class="inline-block mb-2">{hw.number}</span>
+                <span class="inline-block mb-1 lg:my-1 text-base">{hw.number}</span>
               {/if}
               {#if $flute || $voice}
-                <span class="inline-block py-1"><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="sm" /></span>
+                <span class="inline-block py-1.5"><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="sm" /></span>
               {/if}
             </a>
 
@@ -71,10 +71,10 @@
 
           <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click={() => {clickPlayPause(hw)}}>
             {#if hw?.number}
-              <span class="inline-block mb-2">{hw.number}</span>
+              <span class="inline-block mb-1 lg:my-1 text-base">{hw.number}</span>
             {/if}
             {#if $flute || $voice}
-              <span class="inline-block py-1"><Fa icon={faPlayCircle} size="sm" /></span>
+              <span class="inline-block py-1.5"><Fa icon={faPlayCircle} size="sm" /></span>
             {/if}
           </a>
 
