@@ -12,7 +12,7 @@
 
 </script>
 
-<div class="w-full h-13 pt-1 sm:w-96 sm:px-4 sm:bg-white sm:dark:bg-gray-900 sm:rounded-t-3xl mx-auto flex justify-center items-bottom">
+<div class="w-full h-13 pt-1 sm:w-[27rem] sm:px-4 sm:bg-white sm:dark:bg-gray-900 sm:rounded-t-3xl mx-auto flex justify-center items-bottom">
 
   <div class="p-2 bg-white dark:bg-gray-900 rounded-tr-3xl sm:bg-transparent">
     <Pushbutton bool={showSettings} brighten title="settings / about">
