@@ -3,12 +3,13 @@ import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle }
 import { current, brightness, flute, voice, paused, duration, fluteTime, voiceTime, nextTimeout } from '$lib/stores'
 import Fa from 'svelte-fa'
 import { fade } from "svelte/transition"
+import { onMount } from "svelte";
 
   export let hw
   $: $current = hw
 
   const outTiming = { duration:800 }
-  const inTiming = { duration:500, delay:1500 }
+  const inTiming = { duration:500, delay:0 }
 
   function clickNextPrev() {
     clearTimeout($nextTimeout)
@@ -25,6 +26,9 @@ import { fade } from "svelte/transition"
     }
     $paused = !$paused
   }
+
+  // This will switch to zen mode instantly, but create space between auto-played hidden words
+  onMount(() => { inTiming.delay = 1500 })
 
 </script>
 
