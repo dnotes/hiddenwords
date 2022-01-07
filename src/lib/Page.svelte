@@ -42,7 +42,7 @@ import { fade } from "svelte/transition"
         {#if hw.pretext}
           <p class="font-script text-sm my-4">{hw.pretext}</p>
         {/if}
-        <h2 class="opacity-20 text-2xl bold absolute top-2 right-5" class:hidden="{!hw.title}">
+        <h2 class="opacity-20 text-3xl bold fixed top-2 right-8" class:hidden="{!hw.title}">
           {hw.section || hw.id}
           {hw.number || ''}
         </h2>
