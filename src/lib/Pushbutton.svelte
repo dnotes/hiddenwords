@@ -1,17 +1,24 @@
 <script lang="ts">
   import { brightness } from '$lib/stores'
+  import { goto } from "$app/navigation"
+
   export let bool
   export let href = "/about#settings"
   export let label = ""
+  export let title = ""
   export let circle = false
   export let brighten = false
-  function onClick () { $bool = !$bool }
+  export let link = false
+  function onClick (href) {
+    $bool = !$bool
+    if (link) goto(href)
+  }
   import Fa from 'svelte-fa'
   import { faSlash } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <div class="relative">
-  <a class="block text-center opacity-{brighten && $bool ? '100' : $brightness}" {href} on:click|preventDefault|stopPropagation={onClick}>
+  <a class="block text-center opacity-{brighten && $bool ? '100' : $brightness}" {href} {title} on:click|preventDefault|stopPropagation={() => { onClick(href) }}>
     <span class="rounded-full w-8 h-8 border-blue-500 flex justify-center items-center relative" class:border-2={circle}>
       {#if $bool}
         <slot name="on">ON</slot>
