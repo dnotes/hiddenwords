@@ -1,41 +1,25 @@
 <script lang="ts">
 import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
-import { brightness, flute, voice, paused, autoplay } from '$lib/stores'
+import { current, brightness, flute, voice, paused, duration, fluteTime, voiceTime, nextTimeout } from '$lib/stores'
 import Fa from 'svelte-fa'
-import { goto } from "$app/navigation";
 import { fade } from "svelte/transition"
 
   export let hw
-
-  let muteFlute, muteVoice
-  let duration, fluteTime, voiceTime
-  let nextTimeout
-
-  $: {
-    muteFlute = !$flute
-    muteVoice = !$voice
-  }
+  $: $current = hw
 
   const outTiming = { duration:800 }
   const inTiming = { duration:500, delay:1500 }
 
   function clickNextPrev() {
-    clearTimeout(nextTimeout)
+    clearTimeout($nextTimeout)
     $paused = true;
-    fluteTime = 0;
-    voiceTime = 0;
+    $fluteTime = 0;
+    $voiceTime = 0;
   }
 
   function clickPlay() {
-    clearTimeout(nextTimeout)
+    clearTimeout($nextTimeout)
     $paused = !$paused
-  }
-
-  function next() {
-    clearTimeout(nextTimeout)
-    if ($autoplay && hw.next) nextTimeout = setTimeout( function() {
-      goto('/' + hw.next)
-    }, 3200)
   }
 
 </script>
@@ -77,14 +61,10 @@ import { fade } from "svelte/transition"
       <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
       <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next} on:click={clickNextPrev}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
-    <div>
-      <audio src="/files/{hw.anchor}-flute.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteFlute} on:ended={next} bind:currentTime={fluteTime} bind:duration />
-      <audio src="/files/{hw.anchor}-voice.mp3" autoplay={$autoplay} bind:paused={$paused} bind:currentTime={voiceTime} bind:muted={muteVoice} />
-    </div>
     <div class="relative flex justify-center h-4">
       {#key hw}
         <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade={outTiming}>
-          <input type="range" min=0 max={duration} step={0.1} bind:value={fluteTime} on:change={()=>{voiceTime = fluteTime}} />
+          <input type="range" min=0 max={$duration} step={0.1} bind:value={$fluteTime} on:change={()=>{$voiceTime = $fluteTime}} />
         </div>
       {/key}
     </div>

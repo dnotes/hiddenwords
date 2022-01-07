@@ -1,6 +1,7 @@
 <script>
-  import "../app.css";
-  import Nav from "$lib/Nav.svelte";
+import "../app.css";
+import Nav from "$lib/Nav.svelte";
+import Player from "$lib/Player.svelte";
 </script>
 
 <div class="mx-auto h-screen" style="max-width:2400px;">
@@ -12,5 +13,6 @@
       <Nav />
     </div>
   </div>
+  <Player/>
 </div>
 
