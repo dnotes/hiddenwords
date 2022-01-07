@@ -3,55 +3,87 @@ import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle }
 import { brightness, flute, voice, paused, autoplay } from '$lib/stores'
 import Fa from 'svelte-fa'
 import { goto } from "$app/navigation";
+import { fade } from "svelte/transition"
 
   export let hw
 
   let muteFlute, muteVoice
   let duration, fluteTime, voiceTime
+  let nextTimeout
 
   $: {
     muteFlute = !$flute
     muteVoice = !$voice
   }
 
+  const outTiming = { duration:800 }
+  const inTiming = { duration:500, delay:1500 }
+
+  function clickNextPrev() {
+    clearTimeout(nextTimeout)
+    $paused = true;
+    fluteTime = 0;
+    voiceTime = 0;
+  }
+
   function clickPlay() {
+    clearTimeout(nextTimeout)
     $paused = !$paused
   }
 
   function next() {
-    if ($autoplay && hw.next) goto('/' + hw.next)
+    clearTimeout(nextTimeout)
+    if ($autoplay && hw.next) nextTimeout = setTimeout( function() {
+      goto('/' + hw.next)
+    }, 3200)
   }
 
 </script>
 
 <div id="page" class="flex flex-col h-full">
   <div class="flex-grow" />
-  <div class="flex-grow pt-9">
-    {#if hw.pretext}
-      <p class="font-script text-sm my-4">{hw.pretext}</p>
-    {/if}
-    <h2 class="opacity-20 text-2xl bold absolute top-2 right-5" class:hidden="{!hw.title}">
-      {hw.section || hw.id}
-      {hw.number || ''}
-    </h2>
-    <p>
-      {#if hw.exhort}
-        <span class="font-exhort mb-2 inline-block">{hw.exhort}</span><br>
-      {/if}
-      {hw.text}
-    </p>
+
+  <!-- Content -->
+  <div class="flex-grow pt-9 relative">
+    {#key hw}
+      <div class="absolute" in:fade={inTiming} out:fade={outTiming}>
+        {#if hw.pretext}
+          <p class="font-script text-sm my-4">{hw.pretext}</p>
+        {/if}
+        <h2 class="opacity-20 text-2xl bold absolute top-2 right-5" class:hidden="{!hw.title}">
+          {hw.section || hw.id}
+          {hw.number || ''}
+        </h2>
+        <p>
+          {#if hw.exhort}
+            <span class="font-exhort mb-2 inline-block">{hw.exhort}</span><br>
+          {/if}
+          {hw.text}
+        </p>
+      </div>
+    {/key}
   </div>
+
   <div class="flex-grow" />
+
+  <!-- Controls -->
   <div class="relative z-10">
     <div class="opacity-{$brightness} text-center">
-      <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
+      <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev} on:click={clickNextPrev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
       <button disabled={!$flute && !$voice} type="button" class="inline-block {$flute || $voice ? 'text-blue-500' : 'text-gray-500'}" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
-      <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next}><Fa icon={faChevronCircleRight} size="3x" /></a>
+      <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next} on:click={clickNextPrev}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
-    <div class="opacity-{$brightness} text-center">
-      <input type="range" min=0 max={duration} step=0.1 bind:value={fluteTime} on:change={()=>{voiceTime = fluteTime}} />
+    <div>
+      <audio src="/files/{hw.anchor}-flute.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteFlute} on:ended={next} bind:currentTime={fluteTime} bind:duration />
+      <audio src="/files/{hw.anchor}-voice.mp3" autoplay={$autoplay} bind:paused={$paused} bind:currentTime={voiceTime} bind:muted={muteVoice} />
     </div>
-    <audio src="/files/{hw.anchor}-flute.mp3" autoplay={$autoplay} bind:paused={$paused} bind:muted={muteFlute} on:ended={next} bind:currentTime={fluteTime} bind:duration />
-    <audio src="/files/{hw.anchor}-voice.mp3" autoplay={$autoplay} bind:paused={$paused} bind:currentTime={voiceTime} bind:muted={muteVoice} />
+    <div class="relative flex justify-center h-4">
+      {#key hw}
+        <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade={outTiming}>
+          <input type="range" min=0 max={duration} step={0.1} bind:value={fluteTime} on:change={()=>{voiceTime = fluteTime}} />
+        </div>
+      {/key}
+    </div>
   </div>
+
 </div>
