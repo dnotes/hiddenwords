@@ -1,4 +1,4 @@
-type HiddenWord = {
+export type HiddenWord = {
   id:string,
   title?:string,
   section?:string,

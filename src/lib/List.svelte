@@ -1,7 +1,15 @@
 <script lang="ts">
-  import { brightness, current } from '$lib/stores'
-  import { quadIn, quadOut, quadInOut } from 'svelte/easing'
+  import type { HiddenWord } from '$lib/hw'
+  import { brightness, current, paused, flute, voice, fluteTime, voiceTime } from '$lib/stores'
+  import { quadOut } from 'svelte/easing'
+  import Fa from 'svelte-fa'
+  import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
   export let items
+
+  import { browser } from "$app/env"
+  $: if (browser && location.hash) {
+    $current = items.find(item => item.anchor === location.hash.replace('#','')) || {}
+  }
 
   function colorize(node, { duration }) {
     const color = getComputedStyle(node).backgroundColor
@@ -15,6 +23,17 @@
       }
     }
   }
+
+  function clickPlayPause(hw:HiddenWord) {
+    if (hw.id === $current?.['id']) {
+      $paused = !$paused
+    }
+    else {
+      $paused = true
+      $fluteTime = 0
+      $voiceTime = 0
+    }
+  }
 </script>
 
 <div class="max-w-screen-xl mx-auto lg:text-xl xl:text-2xl">
@@ -26,9 +45,14 @@
         {/if}
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
-          {#if hw.number}
-            <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click={()=>{$current=hw}}>{hw.number}</a>
-          {/if}
+
+            <a class="block float-left w-4 -ml-6 text-center opacity-{$paused ? $brightness : '1'}" href="/#{hw.anchor}" on:click={() => {clickPlayPause(hw)}}>
+              {hw?.number || ''}
+              {#if $flute || $voice}
+                <span class="inline-block mt-3"><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="sm" /></span>
+              {/if}
+            </a>
+
           {#if hw.exhort}
             <span class="font-exhort mb-2 inline-block">{hw.exhort}</span><br>
           {/if}
@@ -42,9 +66,14 @@
         {/if}
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
-          {#if hw.number}
-            <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click={()=>{$current=hw}}>{hw.number}</a>
-          {/if}
+
+          <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click={() => {clickPlayPause(hw)}}>
+            {hw?.number || ''}
+            {#if $flute || $voice}
+              <span class="inline-block mt-3"><Fa icon={faPlayCircle} size="sm" /></span>
+            {/if}
+          </a>
+
           {#if hw.exhort}
             <span class="font-exhort mb-2 inline-block">{hw.exhort}</span><br>
           {/if}
