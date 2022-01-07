@@ -6,11 +6,6 @@
   import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
   export let items
 
-  import { browser } from "$app/env"
-  $: if (browser && location.hash) {
-    $current = items.find(item => item.anchor === location.hash.replace('#','')) || {}
-  }
-
   function colorize(node, { duration }) {
     const color = getComputedStyle(node).backgroundColor
     const end = (color.match(/\d+/) || [])[0] > "200" ? 0 : 255
