@@ -74,6 +74,6 @@
 
 </div>
 
-<style>
+<style lang="postcss">
   div.tray>div { @apply p-2; }
 </style>
