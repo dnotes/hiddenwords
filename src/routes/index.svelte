@@ -24,14 +24,21 @@
 
 <script>
   import List from "$lib/List.svelte";
-  import { current } from "$lib/stores"
+  import { current, zen } from "$lib/stores"
   export let items
   let arabic = items.slice(0,72)
   let persian = items.slice(72)
 
   import { browser } from "$app/env"
-  $: if (browser && location.hash) {
-    $current = items.find(item => item.anchor === location.hash.replace('#','')) || {}
+  import { goto } from "$app/navigation";
+
+  $: if (browser) {
+    if (location.hash) {
+      $current = items.find(item => item.anchor === location.hash.replace('#','')) || {}
+    }
+    else if ($current?.['id']) {
+      goto(`/${$zen ? $current?.['id'] : '#' + $current?.['anchor']}`)
+    }
   }
 
 </script>
