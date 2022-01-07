@@ -6,12 +6,9 @@
   import { current, zen, flute, voice, autoplay, showSettings, showContents } from '$lib/stores';
   import Fa from 'svelte-fa'
   import { faBars, faDotCircle, faMicrophoneAlt, faMusic, faPlay, faCog, faBook } from '@fortawesome/free-solid-svg-icons'
-  import { goto } from '$app/navigation';
 
   $: id = $current?.['id'] || ''
   $: href = $zen ? `/${id ? '#' + $current?.['anchor'] : ''}` : `/${id}`
-
-  function switchZen() { $zen = !$zen }
 
 </script>
 
