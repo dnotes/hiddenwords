@@ -36,7 +36,7 @@
     {#if $current?.['id'] === hw.id}
       <div class="mt-6 bg-white dark:bg-gray-900" in:colorize="{{duration:800}}">
         {#if hw.pretext}
-          <p class="font-script text-sm my-4">{hw.pretext}</p>
+          <p class="font-script text-sm mt-8">{hw.pretext}</p>
         {/if}
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
@@ -59,7 +59,7 @@
     {:else}
       <div class="mt-6">
         {#if hw.pretext}
-          <p class="font-script text-sm my-4">{hw.pretext}</p>
+          <p class="font-script text-sm mt-8">{hw.pretext}</p>
         {/if}
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
