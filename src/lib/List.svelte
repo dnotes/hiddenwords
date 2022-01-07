@@ -4,6 +4,7 @@
   import { quadOut } from 'svelte/easing'
   import Fa from 'svelte-fa'
   import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
+  import { tick } from 'svelte';
   export let items
 
   function colorize(node, { duration }) {
@@ -27,6 +28,12 @@
       $paused = true
       $fluteTime = 0
       $voiceTime = 0
+      setTimeout(async () => {
+        window.history.pushState({},'',`/#${hw.anchor}`)
+        $current = hw
+        await tick()
+        $paused = false
+      }, 100)
     }
   }
 </script>
@@ -41,7 +48,7 @@
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
 
-            <a class="block float-left w-4 -ml-6 text-center opacity-{$paused ? $brightness : '1'}" href="/#{hw.anchor}" on:click={() => {clickPlayPause(hw)}}>
+            <a class="block float-left w-4 -ml-6 text-center opacity-{$paused ? $brightness : '1'}" href="/#{hw.anchor}" on:click|preventDefault={() => {clickPlayPause(hw)}}>
               {#if hw?.number}
                 <span class="inline-block mb-1 lg:my-1 text-base">{hw.number}</span>
               {/if}
@@ -64,7 +71,7 @@
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
 
-          <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click={() => {clickPlayPause(hw)}}>
+          <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click|preventDefault={() => {clickPlayPause(hw)}}>
             {#if hw?.number}
               <span class="inline-block mb-1 lg:my-1 text-base">{hw.number}</span>
             {/if}
