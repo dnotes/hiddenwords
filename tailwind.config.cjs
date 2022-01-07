@@ -7,6 +7,10 @@ const config = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'logo': "url('/inneressence.svg')",
+        'logo-dark': "url('inneressence-dark.svg')",
+      },
       fontFamily: {
         normal: ['Bellefair', 'serif'],
         exhort: ['Cormorant Infant', 'serif'],
