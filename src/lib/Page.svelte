@@ -40,6 +40,10 @@ import { fade } from "svelte/transition"
 
 </script>
 
+<svelte:head>
+  <title>The Hidden Words | {hw.title} | {hw.teaser}</title>
+</svelte:head>
+
 <div id="page" class="flex flex-col h-full">
   <div class="flex-grow" />
 
