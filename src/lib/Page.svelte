@@ -71,7 +71,7 @@ import { onMount } from "svelte";
     <div class="relative flex justify-center h-4">
       {#key hw}
         <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade|local={outTiming}>
-          <input type="range" min=0 max={$duration} step={0.1} bind:value={$position} />
+          <input type="range" min=0 max={$duration} step={.1} bind:value={$position} />
         </div>
       {/key}
     </div>
