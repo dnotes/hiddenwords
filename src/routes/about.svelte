@@ -8,39 +8,15 @@
 </script>
 
 <script>
-import { zen, flute, voice, autoplay, brightness } from '$lib/stores'
-import Switch from '$lib/Switch.svelte';
+import Sitelinks from '$lib/Sitelinks.svelte';
   export let item
 </script>
 
-<div class="leading-loose max-w-xs">
-  <h2>Settings</h2>
-  <div class="flex">
-    <div class="flex-grow">Zen mode:</div>
-    <Switch bool={zen} highlight />
-  </div>
+<div class="mx-auto w-3/5 max-w-md bg-contain bg-logo dark:bg-logo-dark"><img class="opacity-0 w-full" alt="the inner essence" src="/inneressence.svg" /></div>
 
-  <div class="flex">
-    <div class="flex-grow">Flute:</div>
-    <Switch bool={flute} highlight />
-  </div>
-
-  <div class="flex">
-    <div class="flex-grow">Reading:</div>
-    <Switch bool={voice} highlight />
-  </div>
-
-  <div class="flex">
-    <div class="flex-grow">Autoplay:</div>
-    <Switch bool={autoplay} highlight />
-  </div>
-
-  <div class="flex">
-    <div class="flex-grow">Controls brightness:</div>
-    <input type="range" min="10" max="100" step="10" bind:value={$brightness} />
-  </div>
-
-</div>
+<h1 class="block text-center text-4vw sm:text-2xl">The Hidden Words of Bahá’u’lláh</h1>
 
 <!-- about page -->
 {@html item.excerptHtml}
+
+<Sitelinks />

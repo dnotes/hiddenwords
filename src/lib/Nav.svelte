@@ -1,7 +1,7 @@
 <script>
   import Popup from '$lib/Popup.svelte';
   import Toc from '$lib/TOC.svelte';
-  import About from '$lib/About.svelte';
+  import Settings from '$lib/Settings.svelte';
   import Pushbutton from './Pushbutton.svelte';
   import { current, zen, flute, voice, autoplay, showSettings, showContents } from '$lib/stores';
   import Fa from 'svelte-fa'
@@ -20,7 +20,7 @@
       <Fa slot="off" icon={faCog} size="lg" />
       <div slot="menu">
         <Popup bool={showSettings} class="left-0">
-          <About />
+          <Settings />
         </Popup>
       </div>
     </Pushbutton>
