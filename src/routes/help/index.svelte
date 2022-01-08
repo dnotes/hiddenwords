@@ -3,7 +3,6 @@
   import { faLink } from '@fortawesome/free-solid-svg-icons'
   import { brightness } from '$lib/stores'
   import topics from '$lib/help'
-  console.log(topics)
 </script>
 
 <svelte:head>
