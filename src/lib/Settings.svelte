@@ -1,6 +1,8 @@
 <script>
-  import { zen, flute, voice, autoplay, brightness } from '$lib/stores'
-  import Switch from '$lib/Switch.svelte';
+import { goto } from '$app/navigation'
+import { page } from '$app/stores'
+import { current, zen, flute, voice, autoplay, brightness } from '$lib/stores'
+import Switch from '$lib/Switch.svelte';
 import Sitelinks from './Sitelinks.svelte';
 </script>
 
@@ -10,7 +12,10 @@ import Sitelinks from './Sitelinks.svelte';
 
   <div class="flex">
     <div class="flex-grow">Zen mode:</div>
-    <Switch bool={zen} highlight />
+    <Switch bool={zen} highlight onclick={() => {
+      $zen = !$zen
+      if ($current?.['id']) goto(`/${$zen ? $current?.['id'] : '#' + $current?.['anchor']}`)
+    }} />
   </div>
 
   <div class="flex">
