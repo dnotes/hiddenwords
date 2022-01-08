@@ -1,5 +1,5 @@
 <script>
-  import { current, paused, muteFlute, muteVoice, fluteTime, voiceTime, duration, nextTimeout, autoplay, zen } from '$lib/stores'
+  import { current, paused, position, flutePaused, flutePosition, muteFlute, muteVoice, duration, nextTimeout, autoplay, zen } from '$lib/stores'
   import { page } from '$app/stores'
   import { goto } from '$app/navigation'
   import { onMount } from 'svelte'
@@ -21,8 +21,8 @@
 {#key $current?.['id']}
   {#if isMounted && $current?.['id']}
     <div>
-      <audio src="/files/{$current?.['anchor']}-flute.mp3" autoplay={$autoplay && isPlayingPage} bind:paused={$paused} bind:muted={$muteFlute} on:ended={next} bind:currentTime={$fluteTime} bind:duration={$duration} />
-      <audio src="/files/{$current?.['anchor']}-voice.mp3" autoplay={$autoplay && isPlayingPage} bind:paused={$paused} bind:muted={$muteVoice} bind:currentTime={$voiceTime}  />
+      <audio src="/files/{$current?.['anchor']}-flute.mp3" autoplay={$autoplay && isPlayingPage} bind:paused={$flutePaused} bind:muted={$muteFlute} bind:currentTime={$flutePosition} />
+      <audio src="/files/{$current?.['anchor']}-voice.mp3" autoplay={$autoplay && isPlayingPage} bind:paused={$paused} bind:muted={$muteVoice} on:ended={next} bind:duration={$duration} bind:currentTime={$position}  />
     </div>
   {/if}
 {/key}

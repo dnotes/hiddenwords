@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HiddenWord } from '$lib/hw'
-  import { brightness, current, paused, flute, voice, fluteTime, voiceTime } from '$lib/stores'
+  import { brightness, current, paused, position, flute, voice } from '$lib/stores'
   import { quadOut } from 'svelte/easing'
   import Fa from 'svelte-fa'
   import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
@@ -26,8 +26,7 @@
     }
     else {
       $paused = true
-      $fluteTime = 0
-      $voiceTime = 0
+      $position = 0
       setTimeout(async () => {
         window.history.pushState({},'',`/#${hw.anchor}`)
         $current = hw
@@ -90,6 +89,6 @@
   {/each}
 </div>
 
-<style>
+<style lang="postcss">
   a.anchor { @apply block relative -top-40; visibility:hidden; color:rgb(218, 200, 45) }
 </style>

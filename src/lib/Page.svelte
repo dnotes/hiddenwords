@@ -1,6 +1,6 @@
 <script lang="ts">
 import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
-import { current, brightness, flute, voice, paused, duration, fluteTime, voiceTime, nextTimeout } from '$lib/stores'
+import { current, brightness, flute, voice, paused, position, flutePosition, duration, nextTimeout } from '$lib/stores'
 import Fa from 'svelte-fa'
 import { fade } from "svelte/transition"
 import { onMount } from "svelte";
@@ -14,8 +14,7 @@ import { onMount } from "svelte";
   function clickNextPrev() {
     clearTimeout($nextTimeout)
     $paused = true;
-    $fluteTime = 0;
-    $voiceTime = 0;
+    $position = 0;
   }
 
   function clickPlay() {
@@ -72,7 +71,7 @@ import { onMount } from "svelte";
     <div class="relative flex justify-center h-4">
       {#key hw}
         <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade={outTiming}>
-          <input type="range" min=0 max={$duration} step={0.1} bind:value={$fluteTime} on:change={()=>{$voiceTime = $fluteTime}} />
+          <input type="range" min=0 max={$duration} step={0.1} bind:value={$position} />
         </div>
       {/key}
     </div>

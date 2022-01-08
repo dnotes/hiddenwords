@@ -17,9 +17,13 @@ export const muteFlute = {...derived(flute,v => !v), set:()=>{}}
 export const muteVoice = {...derived(voice,v => !v), set:()=>{}}
 
 export const paused = writeableNoStore(true)
-export const fluteTime = writeableNoStore(0)
-export const voiceTime = writeableNoStore(0)
+export const position = writeableNoStore(0)
 export const duration = writeableNoStore(1)
+
+// See above
+export const flutePaused = {...derived(paused, v => v), set:()=>{}}
+export const flutePosition = {...derived(position, v => v), set:()=>{}}
+
 export const nextTimeout = writeableNoStore(null)
 
 export const showSettings = writeableNoStore(false)
