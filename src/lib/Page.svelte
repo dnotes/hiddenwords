@@ -41,7 +41,7 @@ import { onMount } from "svelte";
   <!-- Content -->
   <div class="flex-grow pt-9 relative">
     {#key hw}
-      <div class="absolute" in:fade={inTiming} out:fade={outTiming}>
+      <div class="absolute" in:fade={inTiming} out:fade|local={outTiming}>
         {#if hw.pretext}
           <p class="font-script text-sm my-4">{hw.pretext}</p>
         {/if}
@@ -70,7 +70,7 @@ import { onMount } from "svelte";
     </div>
     <div class="relative flex justify-center h-4">
       {#key hw}
-        <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade={outTiming}>
+        <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade|local={outTiming}>
           <input type="range" min=0 max={$duration} step={0.1} bind:value={$position} />
         </div>
       {/key}
