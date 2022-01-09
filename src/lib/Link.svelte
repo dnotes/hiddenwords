@@ -1,5 +1,5 @@
 <script lang="ts">
-import { grid, zen, current } from '$lib/stores'
+import { grid, zen, current, paused, position } from '$lib/stores'
   export let hw
   export let narrow = false
   export let searchtext = ''
@@ -8,9 +8,12 @@ import { grid, zen, current } from '$lib/stores'
   $: href = $zen ? `/${hw.id}` : `/#${hw.id.replace('/','-')}`
   $: found = !searchtext || hw.searchtext.includes(searchtext)
 
-
-
-  function click() { $current=hw }
+  function click() {
+    if ($current?.['id'] !== hw.id) {
+      $paused = true
+      $position = 0
+    }
+  }
 
 </script>
 
