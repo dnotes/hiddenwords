@@ -44,7 +44,7 @@ onMount(() => {
 
 </script>
 
-<div bind:this={el} class="absolute w-96 h-[600px] bottom-8 overflow-y-scroll p-4 text-left bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white {cls}">
+<div bind:this={el} class="absolute w-96 max-w-[calc(100vw-1em)] h-[600px] bottom-8 overflow-y-scroll p-4 text-left bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white {cls}">
   <button class="absolute top-4 right-4 z-10 cursor-pointer text-gray-500" type="button" on:click|stopPropagation={()=>{$bool = !$bool}}><Fa icon={faTimesCircle} size="lg" /></button>
   <slot></slot>
 </div>
