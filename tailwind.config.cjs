@@ -8,8 +8,8 @@ const config = {
   theme: {
     extend: {
       backgroundImage: {
-        'logo': "url('/inneressence.svg')",
-        'logo-dark': "url('/inneressence-dark.svg')",
+        'logo': "url('/inneressence.png')",
+        'logo-dark': "url('/inneressence-dark.png')",
       },
       fontFamily: {
         normal: ['Bellefair', 'serif'],
