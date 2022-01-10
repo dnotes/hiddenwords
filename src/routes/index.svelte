@@ -37,8 +37,10 @@
 
   $: if (!$paused) $launching = false
 
+  let waiting = true
+  setTimeout(()=>{waiting=false},1200)
   // This has to be $: or else auto-advance doesn't work
-  $: if (browser) {
+  $: if (browser && !waiting) {
     if (location.hash) {
       $launching = false
       $current = items.find(item => item.anchor === location.hash.replace('#','')) || {}
@@ -61,7 +63,7 @@
 
 {#if $launching}
 
-<div class="w-screen h-screen fixed z-10 left-0 top-0 bg-white dark:bg-gray-900 flex flex-col justify-center items-center" out:fade|local={{ delay:1500,duration:800 }}>
+<div class="w-screen h-screen fixed z-10 left-0 top-0 bg-white dark:bg-gray-900 flex flex-col justify-center items-center" out:fade={{ delay:1500,duration:800 }}>
   <div class="w-3/5 max-w-md max-h-[60%] bg-contain bg-logo dark:bg-logo-dark"><img class="opacity-0 w-full" alt="the inner essence" src="/inneressence.svg" /></div>
   <h1>The Hidden Words of Bahá’u’lláh</h1>
   <div class="w-64 text-gray-500 font-exhort"><p>a meditative reading<br>accompanied by bamboo flute</p></div>
