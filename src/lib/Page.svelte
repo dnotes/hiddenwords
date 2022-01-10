@@ -1,12 +1,14 @@
 <script lang="ts">
 import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
-import { current, brightness, flute, voice, paused, position, flutePosition, duration, nextTimeout } from '$lib/stores'
+import { current, brightness, flute, voice, paused, position, launching, duration, nextTimeout } from '$lib/stores'
 import Fa from 'svelte-fa'
 import { fade } from "svelte/transition"
 import { onMount } from "svelte";
 
   export let hw
   $: $current = hw
+
+  $launching = false
 
   const outTiming = { duration:800 }
   const inTiming = { duration:500, delay:0 }

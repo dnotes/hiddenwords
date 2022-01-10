@@ -1,5 +1,5 @@
 import { writable } from 'svelte-local-storage-store'
-import { writable as writeableNoStore, derived } from 'svelte/store'
+import { writable as writableNoStore, derived } from 'svelte/store'
 
 export const grid = writable('grid', false)
 export const zen = writable('zen', true)
@@ -16,17 +16,20 @@ export const brightness = writable('brightness', 50)
 export const muteFlute = {...derived(flute,v => !v), set:()=>{}}
 export const muteVoice = {...derived(voice,v => !v), set:()=>{}}
 
-export const paused = writeableNoStore(true)
-export const position = writeableNoStore(0)
-export const duration = writeableNoStore(1)
+export const paused = writableNoStore(true)
+export const position = writableNoStore(0)
+export const duration = writableNoStore(1)
 
 // See above
 export const flutePaused = {...derived(paused, v => v), set:()=>{}}
 export const flutePosition = {...derived(position, v => v), set:()=>{}}
 
-export const nextTimeout = writeableNoStore(null)
+export const nextTimeout = writableNoStore(null)
 
-export const showSettings = writeableNoStore(false)
-export const showContents = writeableNoStore(false)
+export const showSettings = writableNoStore(false)
+export const showContents = writableNoStore(false)
 
 export const current = writable('current', {})
+
+export const launching = writableNoStore(true)
+export const skipSplash = writable('skipSplash', false)
