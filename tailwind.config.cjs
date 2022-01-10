@@ -9,7 +9,7 @@ const config = {
     extend: {
       backgroundImage: {
         'logo': "url('/inneressence.svg')",
-        'logo-dark': "url('inneressence-dark.svg')",
+        'logo-dark': "url('/inneressence-dark.svg')",
       },
       fontFamily: {
         normal: ['Bellefair', 'serif'],
