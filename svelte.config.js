@@ -26,6 +26,7 @@ const config = {
             '/about',
             '/contents',
             '/help',
+            '/hw.json',
           ]
         }),
         mdPlugin({
