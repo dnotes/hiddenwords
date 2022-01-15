@@ -1,6 +1,7 @@
 import adapter from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
 import mdPlugin from "vite-plugin-gray-matter";
+import sw from "kit-sw-workbox"
 
 import mdit from 'markdown-it'
 const md = mdit('commonmark', { typographer:true })
@@ -19,6 +20,14 @@ const config = {
     adapter: adapter(),
     vite: {
       plugins: [
+        sw({
+          routes: [
+            '/',
+            '/about',
+            '/contents',
+            '/help',
+          ]
+        }),
         mdPlugin({
           excerpt:true,
           render
