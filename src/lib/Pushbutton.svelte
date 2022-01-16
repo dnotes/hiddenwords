@@ -9,7 +9,7 @@
   export let circle = false
   export let brighten = false
   export let link = false
-  function onClick (href) {
+  export let onClick = function(href) {
     $bool = !$bool
     if (link) goto(href)
   }

@@ -5,6 +5,8 @@ export const grid = writable('grid', false)
 export const zen = writable('zen', true)
 export const flute = writable('flute', true)
 export const voice = writable('reading', true)
+export const fluteVolume = writable('fluteVolume', 1)
+export const voiceVolume = writable('voiceVolume', 1)
 export const autoplay = writable('autoplay', true)
 export const brightness = writable('brightness', 50)
 
