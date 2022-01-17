@@ -35,3 +35,5 @@ export const current = writable('current', {})
 
 export const launching = writableNoStore(true)
 export const skipSplash = writable('skipSplash', false)
+
+export const theme = writable('theme', '')

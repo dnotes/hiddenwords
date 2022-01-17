@@ -9,6 +9,8 @@
   export let circle = false
   export let brighten = false
   export let link = false
+  let cls = ''
+  export { cls as class }
   export let onClick = function(href) {
     $bool = !$bool
     if (link) goto(href)
@@ -19,7 +21,7 @@
 
 <div class="relative">
   <a class="block text-center opacity-{brighten && $bool ? '100' : $brightness}" {href} {title} on:click|preventDefault|stopPropagation={() => { onClick(href) }}>
-    <span class="rounded-full w-8 h-8 border-blue-500 flex justify-center items-center relative" class:border-2={circle}>
+    <span class="rounded-full w-8 h-8 border-blue-500 flex justify-center items-center relative {cls}" class:border-2={circle}>
       {#if $bool}
         <slot name="on">ON</slot>
       {:else}

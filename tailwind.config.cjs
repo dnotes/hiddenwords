@@ -3,7 +3,7 @@ const config = {
   safelist: [
     { pattern: /opacity-\d{2}/ },
   ],
-  darkMode: "media",
+  darkMode: "class",
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
