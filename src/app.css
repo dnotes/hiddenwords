@@ -5,7 +5,30 @@
 @tailwind components;
 @tailwind utilities;
 
-html { font-size:18px; }
+html {
+  --color-primary: #000;
+  --color-secondary: #333;
+  --color-neutral: #888;
+  --color-background: #fff;
+  --color-background-alt: #eaeaea;
+  --color-link: hsl(197, 91%, 50%);
+}
+html.dark {
+  --color-primary: #fff;
+  --color-secondary: #ddd;
+  --color-neutral: #888;
+  --color-background: #222;
+  --color-background-alt: #555;
+  --color-link: hsl(197, 91%, 70%);;
+}
+html.sepia {
+  --color-primary: #433422;
+  --color-secondary: #705330;
+  --color-neutral: #9c8870;
+  --color-background: #faf4e8;
+  --color-background-alt: #ebe5db;
+  --color-link: #be8417;
+}
 
 @media (min-width: 420px) { #page { font-size: 20px; } }
 @media (min-width: 540px) { #page { font-size: 22px; } }
@@ -16,8 +39,8 @@ html { font-size:18px; }
 @media (min-width: 1390px) { #page { font-size: 34px; } }
 @media (min-width: 1990px) { #page { font-size: 42px; } }
 
-body { @apply dark:bg-gray-900 dark:text-gray-100 font-normal }
-a { @apply text-blue-500 }
+body { @apply bg-background text-primary font-normal }
+a { @apply text-link }
 
 h1,h2,h3,h4,h5,h6 { @apply mt-5 mb-3 leading-tight opacity-70 font-bold text-lg }
 
@@ -32,4 +55,20 @@ li { @apply list-disc list-outside }
 
 blockquote { @apply px-6 }
 
-input { @apply dark:bg-gray-600 }
+input { @apply bg-background-alt }
+
+input[type="range"] { -webkit-appearance:none; @apply h-8 w-full bg-transparent; }
+input[type="range"]:focus { outline:none; }
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track {
+  @apply h-1 w-full cursor-pointer shadow-none bg-neutral rounded-full;
+  box-shadow:0 0 1px var(--color-secondary);
+}
+
+input[type="range"]::-moz-range-progress {
+  @apply h-1 bg-link rounded-full border-none;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb { @apply h-7 w-3 rounded border-secondary border bg-background; }

@@ -20,7 +20,7 @@
 
 <ul class="pl-14">
   {#each topics as t}
-    <li class="leading-tight text-gray-500"><a href="/help#{t.anchor}">{t.title}</a></li>
+    <li class="leading-tight text-neutral"><a href="/help#{t.anchor}">{t.title}</a></li>
   {/each}
 </ul>
 

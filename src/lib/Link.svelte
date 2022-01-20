@@ -27,7 +27,7 @@ import { grid, zen, current, paused, position } from '$lib/stores'
 
 <style lang="postcss">
   a.grid-item {
-    @apply inline-block px-4 py-2 rounded-lg border-2 border-blue-500 text-center;
+    @apply inline-block px-4 py-2 rounded-lg border-2 border-link text-center;
   }
   a.grid-item.narrow {
     @apply border px-1;

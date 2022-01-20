@@ -21,13 +21,13 @@
 
 <div class="relative">
   <a class="block text-center opacity-{brighten && $bool ? '100' : $brightness}" {href} {title} on:click|preventDefault|stopPropagation={() => { onClick(href) }}>
-    <span class="rounded-full w-8 h-8 border-blue-500 flex justify-center items-center relative {cls}" class:border-2={circle}>
+    <span class="rounded-full w-8 h-8 border-link flex justify-center items-center relative {cls}" class:border-2={circle}>
       {#if $bool}
         <slot name="on">ON</slot>
       {:else}
         <slot name="off">
           <Fa class="absolute top-[.4rem] left-[.24rem]" icon={faSlash} />
-          <Fa class="absolute top-[.5rem] left-[.22rem] text-white dark:text-gray-900" icon={faSlash} />
+          <Fa class="absolute top-[.5rem] left-[.22rem] text-background-alt" icon={faSlash} />
           <slot name="on"></slot>
         </slot>
       {/if}

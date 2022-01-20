@@ -7,11 +7,19 @@
     <link rel="manifest" href="/manifest.json">
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (localStorage.theme === 'dark' || (!localStorage?.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      let theme = JSON.parse(localStorage.theme)
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
-      } else {
+        document.documentElement.classList.remove('sepia')
+      }
+      else if (theme === 'sepia') {
+        document.documentElement.classList.add('sepia')
         document.documentElement.classList.remove('dark')
       }
+      else {
+        document.documentElement.classList.remove('dark','sepia')
+      }
+      console.log(document.documentElement)
     </script>
 		%svelte.head%
 

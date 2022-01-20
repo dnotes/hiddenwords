@@ -18,11 +18,11 @@ import Switch from './Switch.svelte'
 
 
 <div class="mx-auto max-w-screen-sm {fullscreen ? 'text-[3.33vw] sm:text-base' : 'text-base'}" bind:clientWidth={w}>
-  <input class="rounded py-1 px-2 border border-gray-500" type="text" placeholder="search for..." on:input={()=>{searchtext = searchtext.toLowerCase()}} bind:value={searchtext}>
+  <input class="rounded py-1 px-2 border border-neutral" type="text" placeholder="search for..." on:input={()=>{searchtext = searchtext.toLowerCase()}} bind:value={searchtext}>
 
   <h2>
     Part I: from the Arabic &nbsp;
-    <Switch bool="{grid}" offLabel="list" onLabel="grid" />
+    <Switch bool="{grid}" highlight offLabel="list" onLabel="grid" />
   </h2>
 
   <!-- Introduction -->

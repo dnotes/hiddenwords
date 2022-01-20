@@ -63,9 +63,9 @@
 
 {#if $launching}
 
-<div class="w-screen h-screen fixed z-10 left-0 top-0 bg-white dark:bg-gray-900 flex flex-col justify-center items-center" out:fade={{ delay:1500,duration:800 }}>
+<div class="w-screen h-screen fixed z-10 left-0 top-0 bg-background flex flex-col justify-center items-center" out:fade={{ delay:1500,duration:800 }}>
   <div class="w-3/5 max-w-md max-h-[60%] bg-cover bg-logo dark:bg-logo-dark"><img class="opacity-0 w-full" alt="The Inner Essence : The Hidden Words of Bahá’u’lláh" src="/inneressence.png" /></div>
-  <div class="w-64 text-gray-500 font-exhort"><p>a meditative reading<br>accompanied by bamboo flute</p></div>
+  <div class="w-64 text-neutral font-exhort"><p>a meditative reading<br>accompanied by bamboo flute</p></div>
 
   {#if $current?.['id'] === 'introduction'}
     <div class="w-64 mt-6 leading-loose">
@@ -73,7 +73,7 @@
         <Fa class="inline" icon={faPlayCircle} size="lg" />
         play {$current?.['title']}
       </a>
-      <a class="block text-gray-500" href="/{$zen ? $current?.['id'] : '#' + $current?.['anchor']}" on:click={()=>{ $autoplay=false; $launching=false }}>
+      <a class="block text-neutral" href="/{$zen ? $current?.['id'] : '#' + $current?.['anchor']}" on:click={()=>{ $autoplay=false; $launching=false }}>
         <Fa class="inline" icon={faVolumeMute} size="lg" />
         continue without sound
       </a>

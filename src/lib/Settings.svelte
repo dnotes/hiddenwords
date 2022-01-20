@@ -54,13 +54,14 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
         <Fa slot="on" icon={faSun} size="lg" />
       </Pushbutton>
     </div>
-    <input type="range" min="10" max="100" step="10" bind:value={$brightness} />
+    <input class="ml-2" type="range" min="10" max="100" step="10" bind:value={$brightness} />
   </div>
 
   <div class="row">
     <div class="flex-grow">Theme</div>
     <Pushbutton {bool} brighten circle={!$theme} class="overflow-hidden text-2xl mx-1" title="use system setting" onClick={()=>{
       $theme = ''
+      document.documentElement.classList.remove('sepia')
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark')
       else document.documentElement.classList.remove('dark')
     }}>
@@ -69,15 +70,24 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
         <span class="w-1/2 pl-[20%] bg-gray-700 text-gray-300 overflow-hidden absolute left-0 top-0">A</span>
       </span>
     </Pushbutton>
-    <Pushbutton {bool} brighten circle={$theme==='dark'} class="bg-gray-900 text-white text-2xl mx-1" title="dark" onClick={()=>{
+    <Pushbutton {bool} brighten circle={$theme==='dark'} class="bg-black text-white text-2xl mx-1" title="dark" onClick={()=>{
       $theme='dark'
+      document.documentElement.classList.remove('sepia')
       document.documentElement.classList.add('dark')
     }}>
       <span slot="on">A</span>
     </Pushbutton>
-    <Pushbutton {bool} brighten circle={$theme==='light'} class="bg-white text-gray-900 text-2xl mx-1" title="light" onClick={()=>{
+    <Pushbutton {bool} brighten circle={$theme==='light'} class="bg-white text-black text-2xl mx-1" title="light" onClick={()=>{
       $theme='light'
       document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('sepia')
+    }}>
+      <span slot="on">A</span>
+    </Pushbutton>
+    <Pushbutton {bool} brighten circle={$theme==='sepia'} class="bg-[#f7f0e4] text-[#412c07] text-2xl mx-1" title="light" onClick={()=>{
+      $theme='sepia'
+      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('sepia')
     }}>
       <span slot="on">A</span>
     </Pushbutton>

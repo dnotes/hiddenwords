@@ -12,9 +12,9 @@
 
 </script>
 
-<div class="w-full h-13 pt-1 sm:w-[27rem] sm:px-4 sm:bg-white sm:dark:bg-gray-900 sm:rounded-t-3xl mx-auto flex justify-center items-bottom">
+<div class="w-full h-13 pt-1 sm:w-[27rem] sm:px-4 sm:bg-background-alt sm:rounded-t-3xl mx-auto flex justify-center items-bottom">
 
-  <div class="p-2 bg-white dark:bg-gray-900 rounded-tr-3xl sm:bg-transparent">
+  <div class="p-2 bg-background-alt rounded-tr-3xl sm:bg-transparent">
     <Pushbutton bool={showSettings} brighten title="settings / about">
       <Fa slot="on" icon={faCog} size="lg" />
       <Fa slot="off" icon={faCog} size="lg" />
@@ -59,7 +59,7 @@
 
   <div class="flex-grow"></div>
 
-  <div class="p-2 bg-white dark:bg-gray-900 rounded-tl-3xl sm:bg-transparent">
+  <div class="p-2 bg-background-alt rounded-tl-3xl sm:bg-transparent">
     <Pushbutton href="/contents" bool={showContents} brighten title="table of contents">
       <Fa slot="on" icon={faBook} size="lg" />
       <Fa slot="off" icon={faBook} size="lg" />

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { faChevronCircleLeft,faChevronCircleRight, faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
-import { current, brightness, flute, voice, paused, position, launching, duration, nextTimeout } from '$lib/stores'
+import { current, brightness, flute, voice, paused, position, launching, duration, nextTimeout, theme } from '$lib/stores'
 import Fa from 'svelte-fa'
 import { fade } from "svelte/transition"
 import { onMount } from "svelte";
@@ -67,7 +67,7 @@ import { onMount } from "svelte";
   <div class="relative z-10">
     <div class="opacity-{$brightness} text-center">
       <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev} on:click={clickNextPrev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
-      <button type="button" class="inline-block text-blue-500" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
+      <button type="button" class="inline-block text-link" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
       <a href="/{hw.next || hw.id}" class="inline-block" class:opacity-0={!hw.next} on:click={clickNextPrev}><Fa icon={faChevronCircleRight} size="3x" /></a>
     </div>
     <div class="relative flex justify-center h-4">
