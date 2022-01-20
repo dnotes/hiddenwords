@@ -36,7 +36,7 @@ import Switch from './Switch.svelte'
 
   <h2>
     Part II: from the Persian &nbsp;
-    <Switch bool="{grid}" offLabel="list" onLabel="grid" />
+    <Switch bool="{grid}" highlight offLabel="list" onLabel="grid" />
   </h2>
 
   <div class:flex={$grid} class="w-full flex-wrap">

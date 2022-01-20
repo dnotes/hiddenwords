@@ -3,11 +3,14 @@
   import { faLink } from '@fortawesome/free-solid-svg-icons'
   import { brightness } from '$lib/stores'
   import topics from '$lib/help'
+  import CloseLink from '$lib/CloseLink.svelte';
 </script>
 
 <svelte:head>
   <title>The Inner Essence | Help</title>
 </svelte:head>
+
+<CloseLink />
 
 <h1>Help / FAQ</h1>
 
