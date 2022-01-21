@@ -8,8 +8,7 @@
   export let items
 
   function colorize(node, { duration }) {
-    const color = getComputedStyle(node).backgroundColor
-    const end = (color.match(/\d+/) || [])[0] > "200" ? 0 : 255
+    const end = document.documentElement.classList.contains('dark') ? 255 : 0
 
     return {
       duration,
