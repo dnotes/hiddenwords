@@ -7,6 +7,7 @@ import Fa from 'svelte-fa'
 import { faSun, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import Pushbutton from './Pushbutton.svelte';
 import { readable } from 'svelte/store'
+import Range from '$lib/Range.svelte'
 let bool = { ...readable(true), set:()=>{}, update:()=>{} }
 </script>
 
@@ -34,7 +35,7 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
         <Fa slot="on" icon={faVolumeUp} />
       </Pushbutton>
     </div>
-    <input class="ml-2" disabled={!$flute} type="range" min="0" max="1" step=".01" bind:value={$fluteVolume} />
+    <Range disabled={!$flute} max={1} step={.01} bind:value={$fluteVolume} />
   </div>
 
   <div class="row">
@@ -44,7 +45,7 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
         <Fa slot="on" icon={faVolumeUp} />
       </Pushbutton>
     </div>
-    <input class="ml-2" disabled={!$voice} type="range" min="0" max="1" step=".01" bind:value={$voiceVolume} />
+    <Range disabled={!$voice} max={1} step={.01} bind:value={$voiceVolume} />
   </div>
 
   <div class="row">
@@ -54,7 +55,7 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
         <Fa slot="on" icon={faSun} size="lg" />
       </Pushbutton>
     </div>
-    <input class="ml-2" type="range" min="10" max="100" step="10" bind:value={$brightness} />
+    <Range min={10} max={100} step={10} bind:value={$brightness} />
   </div>
 
   <div class="row">

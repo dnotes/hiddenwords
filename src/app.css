@@ -22,7 +22,7 @@ html.dark {
   --color-link: hsl(197, 91%, 70%);;
 }
 html.sepia {
-  --color-primary: #433422;
+  --color-primary: #523d23;
   --color-secondary: #705330;
   --color-neutral: #9c8870;
   --color-background: #faf4e8;
@@ -57,18 +57,25 @@ blockquote { @apply px-6 }
 
 input { @apply bg-background-alt }
 
-input[type="range"] { -webkit-appearance:none; @apply h-8 w-full bg-transparent; }
+
+input[type="range"] { -webkit-appearance:none; @apply h-8 w-full bg-transparent cursor-pointer; }
 input[type="range"]:focus { outline:none; }
 
-input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply h-7 w-3 rounded border-secondary border border-solid bg-background mt-1;
+}
+
 input[type="range"]::-moz-range-track {
-  @apply h-1 w-full cursor-pointer shadow-none bg-neutral rounded-full;
-  box-shadow:0 0 1px var(--color-secondary);
+  opacity:0;
+}
+input[type="range"]::-moz-range-thumb {
+  @apply h-7 w-3 rounded border-secondary border bg-background;
 }
 
-input[type="range"]::-moz-range-progress {
-  @apply h-1 bg-link rounded-full border-none;
+input[type="range"]::-ms-track {
+  opacity:0;
 }
-
-input[type="range"]::-webkit-slider-thumb,
-input[type="range"]::-moz-range-thumb { @apply h-7 w-3 rounded border-secondary border bg-background; }
+input[type="range"]::-ms-thumb {
+  @apply h-7 w-3 rounded border-secondary border bg-background;
+}

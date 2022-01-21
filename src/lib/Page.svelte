@@ -4,6 +4,7 @@ import { current, brightness, flute, voice, paused, position, launching, duratio
 import Fa from 'svelte-fa'
 import { fade } from "svelte/transition"
 import { onMount } from "svelte";
+import Range from '$lib/Range.svelte'
 
   export let hw
   $: $current = hw
@@ -73,7 +74,7 @@ import { onMount } from "svelte";
     <div class="relative flex justify-center h-4">
       {#key hw}
         <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade|local={outTiming}>
-          <input type="range" min=0 max={$duration} step={.1} bind:value={$position} />
+          <Range max={$duration} step={.1} bind:value={$position} />
         </div>
       {/key}
     </div>
