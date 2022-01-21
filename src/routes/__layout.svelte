@@ -4,8 +4,8 @@ import Nav from "$lib/Nav.svelte";
 import Player from "$lib/Player.svelte";
 </script>
 
-<div class="mx-auto h-screen" style="max-width:2400px;">
-  <div class="pb-20 px-4 sm:px-9 md:px-16 h-full overflow-y-scroll">
+<div class="mx-auto h-screen scrollbar-hide" style="max-width:2400px;">
+  <div class="pb-20 px-4 sm:px-9 md:px-16 h-full overflow-y-scroll scrollbar-hide">
     <slot />
   </div>
   <div class="fixed bottom-0 left-0 w-full h-10 sm:bg-background z-50">
@@ -15,4 +15,3 @@ import Player from "$lib/Player.svelte";
   </div>
   <Player/>
 </div>
-
