@@ -12,5 +12,5 @@
 <div class="w-full h-8 cursor-pointer overflow-hidden relative" class:saturate-0={disabled} >
   <div class="h-1 bg-neutral absolute left-0 top-[45%] w-full" />
   <div class="h-1 bg-link absolute left-0 top-[45%]" style="width:{pos}%" />
-  <input type="range" bind:value {min} {max} {step} class="w-full relative z-50" />
+  <input type="range" bind:value {min} {max} {step} class="w-full relative" />
 </div>
