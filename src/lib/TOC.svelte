@@ -16,12 +16,14 @@ import Switch from './Switch.svelte'
 
 
 
-<div class="mx-auto max-w-screen-sm" bind:clientWidth={w}>
+<div class="mx-auto max-w-screen-sm text-sm sm:text-base" bind:clientWidth={w}>
   <input class="rounded py-1 px-2 border border-neutral" type="text" placeholder="search for..." on:input={()=>{searchtext = searchtext.toLowerCase()}} bind:value={searchtext}>
 
   <h2>
     Part I: from the Arabic &nbsp;
-    <Switch bool="{grid}" highlight offLabel="list" onLabel="grid" />
+    <span class="whitespace-nowrap">
+      <Switch bool="{grid}" highlight offLabel="list" onLabel="grid" />
+    </span>
   </h2>
 
   <!-- Introduction -->
@@ -35,7 +37,9 @@ import Switch from './Switch.svelte'
 
   <h2>
     Part II: from the Persian &nbsp;
-    <Switch bool="{grid}" highlight offLabel="list" onLabel="grid" />
+    <span class="whitespace-nowrap">
+      <Switch bool="{grid}" highlight offLabel="list" onLabel="grid" />
+    </span>
   </h2>
 
   <div class:flex={$grid} class="w-full flex-wrap">
