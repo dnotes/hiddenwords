@@ -39,33 +39,34 @@ import Range from '$lib/Range.svelte'
 </svelte:head>
 
 <div id="page" class="flex flex-col h-full">
-  <div class="flex-grow" />
+  {#key hw}
+    <h2 class="block opacity-20 text-[140%] bold text-right h-[1em]" class:hidden="{!hw.title}">
+      {hw.section || hw.id}
+      {hw.number || ''}
+    </h2>
+  {/key}
 
   <!-- Content -->
-  <div class="flex-grow pt-9 relative">
+  <div class="flex-grow relative">
     {#key hw}
-      <div class="absolute" in:fade={inTiming} out:fade|local={outTiming}>
-        {#if hw.pretext}
-          <p class="font-script text-sm my-4">{hw.pretext}</p>
-        {/if}
-        <h2 class="opacity-20 text-3xl bold fixed top-2 right-8" class:hidden="{!hw.title}">
-          {hw.section || hw.id}
-          {hw.number || ''}
-        </h2>
-        <p>
-          {#if hw.exhort}
-            <span class="font-exhort mb-2 inline-block">{hw.exhort}</span><br>
+      <div class="flex flex-col justify-center h-full" in:fade={inTiming} out:fade|local={outTiming}>
+        <div>
+          {#if hw.pretext}
+            <p class="font-script text-[90%] my-4">{hw.pretext}</p>
           {/if}
-          {hw.text}
-        </p>
+          <p>
+            {#if hw.exhort}
+              <span class="font-exhort mb-2 inline-block">{hw.exhort}</span><br>
+            {/if}
+            {hw.text}
+          </p>
+        </div>
       </div>
     {/key}
   </div>
 
-  <div class="flex-grow" />
-
   <!-- Controls -->
-  <div class="relative z-10">
+  <div class="relative z-10 py-4">
     <div class="opacity-{$brightness} text-center">
       <a href="/{hw.prev || hw.id}" class="inline-block" class:opacity-0={!hw.prev} on:click={clickNextPrev}><Fa icon={faChevronCircleLeft} size="3x" /></a>
       <button type="button" class="inline-block text-link" on:click={clickPlay}><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="2x" /></button>
@@ -73,7 +74,7 @@ import Range from '$lib/Range.svelte'
     </div>
     <div class="relative flex justify-center h-4">
       {#key hw}
-        <div class="opacity-{$brightness} absolute" in:fade={inTiming} out:fade|local={outTiming}>
+        <div class="opacity-{$brightness} absolute">
           <Range max={$duration} step={.1} bind:value={$position} />
         </div>
       {/key}

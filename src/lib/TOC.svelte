@@ -3,7 +3,6 @@ import { grid } from '$lib/stores'
 import hws from '$lib/hw'
 import Link from './Link.svelte'
 import Switch from './Switch.svelte'
-  export let fullscreen = false
 
   let w
   $: narrow = (w < 480)
@@ -17,7 +16,7 @@ import Switch from './Switch.svelte'
 
 
 
-<div class="mx-auto max-w-screen-sm {fullscreen ? 'text-[3.33vw] sm:text-base' : 'text-base'}" bind:clientWidth={w}>
+<div class="mx-auto max-w-screen-sm" bind:clientWidth={w}>
   <input class="rounded py-1 px-2 border border-neutral" type="text" placeholder="search for..." on:input={()=>{searchtext = searchtext.toLowerCase()}} bind:value={searchtext}>
 
   <h2>

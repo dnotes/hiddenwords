@@ -12,7 +12,7 @@
 
 </script>
 
-<div class="w-full h-13 pt-1 sm:w-[27rem] sm:px-4 sm:bg-background-alt sm:rounded-t-3xl mx-auto flex justify-center items-bottom">
+<div class="w-full h-13 pt-1 sm:w-[27rem] sm:px-4 bg-background-alt sm:rounded-t-3xl mx-auto flex justify-center items-bottom">
 
   <div class="p-2 bg-background-alt rounded-tr-3xl sm:bg-transparent">
     <Pushbutton bool={showSettings} brighten title="settings / about">
@@ -28,7 +28,7 @@
 
   <div class="flex-grow"></div>
 
-  <div class="tray hidden sm:flex">
+  <div class="tray flex">
 
     <div>
       <Pushbutton bool={zen} circle {href} link title="{$zen ? 'switch to scrolling mode' : 'switch to zen mode'}">

@@ -1,11 +1,13 @@
 <script lang="ts">
   import type { HiddenWord } from '$lib/hw'
-  import { brightness, current, paused, position, flute, voice } from '$lib/stores'
+  import { brightness, current, paused, position, flute, voice, fontSize } from '$lib/stores'
   import { quadOut } from 'svelte/easing'
   import Fa from 'svelte-fa'
   import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons';
   import { tick } from 'svelte';
   export let items
+
+  $: gutterSpacing = $fontSize > 30 ? '-1.1em' : ($fontSize > 25 ? '-1.2em' : '-1.5em')
 
   function colorize(node, { duration }) {
     const end = document.documentElement.classList.contains('dark') ? 255 : 0
@@ -36,19 +38,23 @@
   }
 </script>
 
-<div class="max-w-screen-xl mx-auto lg:text-xl xl:text-2xl">
+<div class="max-w-screen-xl mx-auto">
   {#each items as hw}
     {#if $current?.['id'] === hw.id}
       <div class="mt-6 bg-background" in:colorize="{{duration:800}}">
         {#if hw.pretext}
-          <p class="font-script text-sm mt-8">{hw.pretext}</p>
+          <p class="font-script text-[90%] mt-8">{hw.pretext}</p>
         {/if}
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
 
-            <a class="block float-left w-4 -ml-6 text-center opacity-{$paused ? $brightness : '1'}" href="/#{hw.anchor}" on:click|preventDefault={() => {clickPlayPause(hw)}}>
+            <a class="block float-left w-[1em] text-center opacity-{$paused ? $brightness : '1'}"
+              style="margin-left:{gutterSpacing}"
+              href="/#{hw.anchor}"
+              on:click|preventDefault={() => {clickPlayPause(hw)}}
+            >
               {#if hw?.number}
-                <span class="inline-block mb-1 lg:my-1 text-base">{hw.number}</span>
+                <span class="inline-block mb-1 lg:my-1">{hw.number}</span>
               {/if}
               {#if $flute || $voice}
                 <span class="inline-block py-1.5"><Fa icon={$paused ? faPlayCircle : faPauseCircle} size="sm" /></span>
@@ -64,14 +70,18 @@
     {:else}
       <div class="mt-6">
         {#if hw.pretext}
-          <p class="font-script text-sm mt-8">{hw.pretext}</p>
+          <p class="font-script text-[90%] mt-8">{hw.pretext}</p>
         {/if}
         <p>
           <a class="anchor" id="{hw.anchor}">{hw.number || hw.title}</a>
 
-          <a class="block float-left w-4 -ml-6 text-center opacity-{$brightness}" href="/#{hw.anchor}" on:click|preventDefault={() => {clickPlayPause(hw)}}>
+          <a class="block float-left w-[1em] text-center opacity-{$brightness}"
+            style="margin-left:{gutterSpacing}"
+            href="/#{hw.anchor}"
+            on:click|preventDefault={() => {clickPlayPause(hw)}}
+          >
             {#if hw?.number}
-              <span class="inline-block mb-1 lg:my-1 text-base">{hw.number}</span>
+              <span class="inline-block mb-1 lg:my-1">{hw.number}</span>
             {/if}
             {#if $flute || $voice}
               <span class="inline-block py-1.5"><Fa icon={faPlayCircle} size="sm" /></span>

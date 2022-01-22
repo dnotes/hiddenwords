@@ -6,6 +6,7 @@
 @tailwind utilities;
 
 html {
+  font-size:18px;
   --color-primary: #000;
   --color-secondary: #333;
   --color-neutral: #888;
@@ -30,23 +31,14 @@ html.sepia {
   --color-link: #be8417;
 }
 
-@media (min-width: 420px) { #page { font-size: 20px; } }
-@media (min-width: 540px) { #page { font-size: 22px; } }
-@media (min-width: 700px) { #page { font-size: 24px; } }
-@media (min-width: 840px) { #page { font-size: 26px; } }
-@media (min-width: 1000px) { #page { font-size: 28px; } }
-@media (min-width: 1260px) { #page { font-size: 32px; } }
-@media (min-width: 1390px) { #page { font-size: 34px; } }
-@media (min-width: 1990px) { #page { font-size: 42px; } }
-
 body { @apply bg-background text-primary font-normal }
 a { @apply text-link }
 
-h1,h2,h3,h4,h5,h6 { @apply mt-5 mb-3 leading-tight opacity-70 font-bold text-lg }
+h1,h2,h3,h4,h5,h6 { @apply mt-5 mb-3 leading-tight opacity-70 font-bold text-[1.25em] }
 
-h2 { @apply text-xl }
+h2 { @apply text-[1.4em] }
 
-h1 { @apply text-2xl }
+h1 { @apply text-[1.5em] }
 
 p { @apply leading-snug mt-3 }
 

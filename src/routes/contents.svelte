@@ -5,4 +5,4 @@
 
 <CloseLink />
 
-<Toc fullscreen />
+<Toc />

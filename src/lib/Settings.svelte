@@ -1,6 +1,6 @@
 <script>
 import { goto } from '$app/navigation'
-import { current, zen, flute, voice, fluteVolume, voiceVolume, autoplay, brightness, theme } from '$lib/stores'
+import { current, zen, flute, voice, fluteVolume, voiceVolume, autoplay, brightness, theme, fontSize } from '$lib/stores'
 import Switch from '$lib/Switch.svelte';
 import Sitelinks from './Sitelinks.svelte';
 import Fa from 'svelte-fa'
@@ -59,6 +59,16 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
   </div>
 
   <div class="row">
+    <div class="w-1/4">Font size</div>
+    <div class="flex-grow">
+      <Pushbutton {bool} onClick={()=>{ $fontSize = 18 }}>
+        <span slot="on">{Math.round($fontSize)}</span>
+      </Pushbutton>
+    </div>
+    <Range min={10} max={32} step={.1} bind:value={$fontSize} />
+  </div>
+
+  <div class="row">
     <div class="flex-grow">Theme</div>
     <Pushbutton {bool} brighten circle={!$theme} class="overflow-hidden text-2xl mx-1" title="use system setting" onClick={()=>{
       $theme = ''
@@ -67,8 +77,8 @@ let bool = { ...readable(true), set:()=>{}, update:()=>{} }
       else document.documentElement.classList.remove('dark')
     }}>
       <span slot="on">
-        <span class="bg-gray-300 text-gray-700 w-full absolute right-0 top-0">A</span>
-        <span class="w-1/2 pl-[20%] bg-gray-700 text-gray-300 overflow-hidden absolute left-0 top-0">A</span>
+        <span class="bg-gray-300 text-gray-700 w-full absolute left-0 top-0">A</span>
+        <span class="w-1/2 pl-[22%] bg-gray-700 text-gray-300 overflow-hidden absolute left-0 top-0">A</span>
       </span>
     </Pushbutton>
     <Pushbutton {bool} brighten circle={$theme==='dark'} class="bg-black text-white text-2xl mx-1" title="dark" onClick={()=>{

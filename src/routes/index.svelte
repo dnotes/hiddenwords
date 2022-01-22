@@ -84,16 +84,18 @@
 
 {:else}
 
-<h2 id="arabic">Part I : From the Arabic</h2>
+<div class="max-w-screen-xl mx-auto">
+  <h2 id="arabic">Part I : From the Arabic</h2>
 
-<div class="pl-5 sm:pl-0">
-  <List items={arabic} />
-</div>
+  <div class="pl-5 sm:pl-0">
+    <List items={arabic} />
+  </div>
 
-<h2 id="persian">Part II : From the Persian</h2>
+  <h2 id="persian">Part II : From the Persian</h2>
 
-<div class="pl-5 sm:pl-0">
-  <List items={persian} />
+  <div class="pl-5 sm:pl-0">
+    <List items={persian} />
+  </div>
 </div>
 
 {/if}

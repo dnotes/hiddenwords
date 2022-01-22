@@ -37,3 +37,4 @@ export const launching = writableNoStore(true)
 export const skipSplash = writable('skipSplash', false)
 
 export const theme = writable('theme', '')
+export const fontSize = writable('fontSize', 20)
