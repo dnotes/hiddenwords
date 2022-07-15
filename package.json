@@ -23,7 +23,7 @@
     "markdown-it": "^12.3",
     "markdown-it-attrs": "^4.1",
     "pwa-asset-generator": "^6.0.5",
-    "svelte": "^3.45",
+    "svelte": "^3.49",
     "svelte-check": "^2.2.6",
     "svelte-fa": "^2.4.0",
     "svelte-local-storage-store": "^0.2.6",
